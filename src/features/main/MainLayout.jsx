@@ -50,7 +50,7 @@ export default function MainLayout() {
             إدارة طلبات الصيانة
           </h1>
         </SideBarHeader>
-        <SideBarContent className={"text-[16px] p-4"}>
+        <SideBarContent className={"text-[16px]"}>
           {sectionList.map((section) => (
             <SideBarButton
               key={section.title}
@@ -61,7 +61,7 @@ export default function MainLayout() {
             />
           ))}
         </SideBarContent>
-        <SideBarFooter className={"p-4"}>
+        <SideBarFooter>
           <SideBarButton
             active={false}
             icon={Icons.Setting}

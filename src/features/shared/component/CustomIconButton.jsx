@@ -9,7 +9,7 @@ export default function CustomIconButton({
     <button
       disabled={disabled}
       onClick={onClick}
-      className={`p-2 border rounded-lg transition duration-300 ease-in-out
+      className={`border rounded-lg transition duration-300 flex items-center justify-center
       disabled:bg-gray-50 disabled:text-gray-400 disabled:border-gray-200 disabled:cursor-not-allowed disabled:shadow-none
       ${className}`}
     >
