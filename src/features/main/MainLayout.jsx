@@ -27,7 +27,7 @@ export default function MainLayout() {
     },
     {
       title: "عمال الصيانة",
-      icon: Icons.Tool,
+      icon: Icons.People,
       url: "/workers",
     },
     {
@@ -50,7 +50,7 @@ export default function MainLayout() {
             إدارة طلبات الصيانة
           </h1>
         </SideBarHeader>
-        <SideBarContent className={"space-y-5"}>
+        <SideBarContent className={"text-[16px] p-4"}>
           {sectionList.map((section) => (
             <SideBarButton
               key={section.title}
@@ -61,10 +61,16 @@ export default function MainLayout() {
             />
           ))}
         </SideBarContent>
-        <SideBarFooter>
+        <SideBarFooter className={"p-4"}>
           <SideBarButton
             active={false}
-            icon={Icons.Bill}
+            icon={Icons.Setting}
+            title={"الإعدادات"}
+          />
+          <SideBarButton active={false} icon={Icons.Flag} title={"الدعم"} />
+          <SideBarButton
+            active={false}
+            icon={Icons.Logout}
             title={"تسجيل الخروج"}
           />
         </SideBarFooter>

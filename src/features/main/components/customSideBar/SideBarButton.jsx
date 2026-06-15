@@ -1,6 +1,12 @@
 import { useIsSideBarOpen } from "./SideBarProvider";
 
-export default function SideBarButton({ active, icon, title, onClick }) {
+export default function SideBarButton({
+  className,
+  active,
+  icon,
+  title,
+  onClick,
+}) {
   //
   const { isOpen } = useIsSideBarOpen();
   //
@@ -8,15 +14,16 @@ export default function SideBarButton({ active, icon, title, onClick }) {
   //
   return (
     <button
-      className={`w-full flex flex-row-reverse items-center px-3 py-2 gap-2.5 rounded-lg
-        ${active ? "bg-[#397AFF]" : "bg-transparent"}`}
+      className={`w-full flex flex-row-reverse items-center rounded-lg
+        transition-all duration-300 ease-in-out
+        ${active ? "bg-[#397AFF]" : "bg-transparent"}
+        ${isOpen ? "w-full gap-2" : "w-fit gap-0"}
+        ${className}`}
       onClick={onClick}
     >
       {Icon && (
         <Icon
-          className={`w-5 h-5 shrink-0 ${
-            active ? "text-white" : "text-slate-500"
-          }`}
+          className={`size-5 shrink-0 ${active ? "text-white" : "text-slate-500 "} `}
         />
       )}
 
