@@ -1,19 +1,25 @@
-import { customIcons, getIcon } from "../../../helpers/iconHelper";
+import { Icons } from "../../../assets/icons";
+import CustomIconButton from "../../shared/component/CustomIconButton";
+import { useIsSideBarOpen } from "./customSideBar/SideBarProvider";
 
-export default function AppBar({ onClick }) {
+export default function AppBar({ title }) {
+  //
+  const { isOpen, handleOpenSideBar } = useIsSideBarOpen();
+  //
   return (
-    <div className="flex flex-row justify-between items-center p-2 border-b">
-      <img src={getIcon(customIcons.avatar)} />
-      <div className="flex flex-row items-center gap-4 text-[20px] font-semibold font-[Cairo]">
-        <div className="flex flex-row gap-0.5">
-          <span className="text-zinc-200">/</span>
-          <h1>الرئيسية</h1>
-        </div>
-        {/* <img src={getIcon(customIcons.smallMontkaLogo)} className="w-10" /> */}
-        <button onClick={onClick}>
-          <img src={getIcon(customIcons.sideBar)} />
-        </button>
-      </div>
+    <div
+      className="w-full flex flex-row-reverse items-center py-3 px-4 border-b border-[#DFDFDF]
+          text-[20px] text-text-primary font-[Cairo] font-bold"
+    >
+      <CustomIconButton
+        className={`size-10 shrink-0 border-transparent bg-bg-primary md:hidden 
+          ${isOpen ? "rotate-0" : "rotate-180"}`}
+        icon={Icons.Arrow}
+        onClick={() => {
+          handleOpenSideBar();
+        }}
+      />
+      <h1>{title}</h1>
     </div>
   );
 }

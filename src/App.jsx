@@ -29,7 +29,11 @@ function App() {
     //   ],
     // },
   ]);
-  return <RouterProvider router={router} />;
+  return (
+    <div className="light">
+      <RouterProvider router={router} />
+    </div>
+  );
 }
 
 export default App;

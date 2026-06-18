@@ -7,6 +7,7 @@ import Logout from "./logout.svg?react";
 import Papers from "./papers.svg?react";
 import People from "./people.svg?react";
 import Report from "./report.svg?react";
+import Search from "./search.svg?react";
 import Setting from "./setting.svg?react";
 import Tool from "./tool.svg?react";
 
@@ -20,6 +21,7 @@ export const Icons = {
   Papers,
   People,
   Report,
+  Search,
   Setting,
   Tool,
 };

@@ -13,11 +13,100 @@ html {
 a:hover {
   cursor: pointer; /* changes cursor to a hand */
 }
-.white-svg {
-  filter: brightness(0) invert(1); /* Turns any color to white */
+
+/* ==COLORS== */
+@layer base {
+  * {
+    @apply transition-colors duration-300 ease-in-out;
+  }
 }
-.black-svg {
-  filter: brightness(0) saturate(100%);
+:root {
+  --color-primary-50: #9cabfc;
+  --color-primary-100: #397aff;
+  --color-primary-600: #0054ff;
+
+  --color-gray-50: #efefef;
+  --color-gray-100: #e4e4e4;
+  --color-gray-300: #b5b5b5;
+  --color-gray-500: #989898;
+  --color-gray-700: #646464;
+  --color-gray-900: #393939;
+  --color-gray-960: #000000;
+
+  --color-green-100: #e8fadc;
+  --color-green-500: #23d881;
+  --color-green-600: #1c6c69;
+
+  --color-red-100: #ffe1df;
+  --color-red-500: #ff5247;
+  --color-red-600: #c8180d;
+
+  --color-yellow-100: #fff6e4;
+  --color-yellow-500: #fdb528;
+  --color-yellow-600: #db6a04;
+
+  --color-blue-100: #d6e9ff;
+  --color-blue-500: #2196f3;
+  --color-blue-600: #1565c0;
+}
+.light {
+  --color-text-primary: #0f172a;
+  --color-text-secondary: #64748b;
+  --color-bg-primary: #ffffff;
+  --color-bg-secondary: #f8f8f8;
+  --color-border: #e2e8f0;
+}
+.dark {
+  --color-text-primary: #f8fafc;
+  --color-text-secondary: #94a3b8;
+  --color-bg-primary: #0f172a;
+  --color-bg-secondary: #1e293b;
+  --color-border: #334155;
+}
+
+@theme {
+  /* Primary */
+  --color-primary-50: var(--color-primary-50);
+  --color-primary-100: var(--color-primary-100);
+  --color-primary-600: var(--color-primary-600);
+
+  /* Gray */
+  --color-gray-50: var(--color-gray-50);
+  --color-gray-100: var(--color-gray-100);
+  --color-gray-300: var(--color-gray-300);
+  --color-gray-500: var(--color-gray-500);
+  --color-gray-700: var(--color-gray-700);
+  --color-gray-900: var(--color-gray-900);
+  --color-gray-960: var(--color-gray-960);
+
+  /* Green */
+  --color-green-100: var(--color-green-100);
+  --color-green-500: var(--color-green-500);
+  --color-green-600: var(--color-green-600);
+
+  /* Red */
+  --color-red-100: var(--color-red-100);
+  --color-red-500: var(--color-red-500);
+  --color-red-600: var(--color-red-600);
+
+  /* Yellow */
+  --color-yellow-100: var(--color-yellow-100);
+  --color-yellow-500: var(--color-yellow-500);
+  --color-yellow-600: var(--color-yellow-600);
+
+  /* Blue */
+  --color-blue-100: var(--color-blue-100);
+  --color-blue-500: var(--color-blue-500);
+  --color-blue-600: var(--color-blue-600);
+
+  /* Theme Colors */
+  --color-text-primary: var(--color-text-primary);
+  --color-text-secondary: var(--color-text-secondary);
+
+  --color-bg-primary: var(--color-bg-primary);
+  --color-bg-secondary: var(--color-bg-secondary);
+
+  --color-border-theme: var(--color-border);
 }
 /* ==FONTS== */
 /* Cairo */

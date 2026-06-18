@@ -7,9 +7,9 @@ export default function SideBarHeader({ children }) {
   const { isOpen, handleOpenSideBar } = useIsSideBarOpen();
   //
   return (
-    <div className="w-full flex flex-row items-center p-4 gap-2 border-b border-[#F8F8F8]">
+    <div className="w-full flex flex-row items-center p-4 gap-2">
       <CustomIconButton
-        className={`size-11 shrink-0 border-transparent bg-white ${isOpen ? "rotate-0" : "rotate-180"}`}
+        className={`size-11 shrink-0 border-transparent bg-bg-primary ${isOpen ? "rotate-0" : "rotate-180"}`}
         icon={Icons.Arrow}
         onClick={() => {
           handleOpenSideBar();

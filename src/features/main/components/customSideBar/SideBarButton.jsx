@@ -9,13 +9,13 @@ export default function SideBarButton({ active, icon, title, onClick }) {
   return (
     <button
       className={`w-full flex flex-row-reverse items-center px-3 py-2 gap-2.5 rounded-lg
-        ${active ? "bg-[#397AFF]" : "bg-transparent"}`}
+        ${active ? "bg-primary-100" : "bg-transparent"}`}
       onClick={onClick}
     >
       {Icon && (
         <Icon
           className={`size-5.5 shrink-0 ${
-            active ? "text-white" : "text-slate-500"
+            active ? "text-[#F8FAFC]" : "text-text-secondary"
           }`}
         />
       )}
@@ -25,7 +25,7 @@ export default function SideBarButton({ active, icon, title, onClick }) {
           text-lg text-right overflow-hidden truncate
           transition-all duration-300 ease-in-out
           ${isOpen ? "w-full" : "w-0"}
-          ${active ? "text-white font-bold" : "text-[#64748B] font-normal"}`}
+          ${active ? "text-[#F8FAFC] font-bold" : "text-text-secondary font-normal"}`}
       >
         {title}
       </h1>
