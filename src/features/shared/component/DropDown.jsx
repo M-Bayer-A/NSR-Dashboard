@@ -6,7 +6,7 @@ export default function DropDown({
   className,
   title = "select",
   options = [{ id: 1, name: "option_1" }],
-  value,
+  value = options[0].id,
   onChange = () => {},
 }) {
   //

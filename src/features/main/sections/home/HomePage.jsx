@@ -15,8 +15,9 @@ export default function HomePage() {
     <div className="flex flex-col gap-4 p-4">
       <SearchBar placeholder="ابحث في الطلبات" />
       <DropDown
-        title={"scsc"}
-        // value={2}
+        title={"h"}
+        value={id}
+        onChange={(value) => setId(value)}
         options={[
           { id: 1, name: "scscs" },
           { id: 2, name: "ccc" },
