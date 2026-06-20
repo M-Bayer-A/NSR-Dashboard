@@ -5,8 +5,10 @@ import {
 } from "react-router-dom";
 import MainLayout from "./features/main/MainLayout";
 import HomePage from "./features/main/sections/home/HomePage";
+import { useEffect } from "react";
 
 function App() {
+  //
   const router = createBrowserRouter([
     {
       // path: "/",
@@ -29,10 +31,15 @@ function App() {
     //   ],
     // },
   ]);
+  //
+  useEffect(() => {
+    document.documentElement.classList.add("light");
+  }, []);
+  //
   return (
-    <div className="light">
-      <RouterProvider router={router} />
-    </div>
+    // <div className="light">
+    <RouterProvider router={router} />
+    // </div>
   );
 }
 

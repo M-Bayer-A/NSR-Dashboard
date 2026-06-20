@@ -8,13 +8,13 @@ export default function SideBarButton({ active, icon, title, onClick }) {
   //
   return (
     <button
-      className={`w-full flex flex-row-reverse items-center px-3 py-2 gap-2.5 rounded-lg
-        ${active ? "bg-primary-100" : "bg-transparent"}`}
+      className={`w-full flex flex-row-reverse items-center px-3.5 py-2 gap-2.5 rounded-lg
+        ${active ? "bg-primary-accent" : "bg-transparent"}`}
       onClick={onClick}
     >
       {Icon && (
         <Icon
-          className={`size-5.5 shrink-0 ${
+          className={`size-5 shrink-0 ${
             active ? "text-[#F8FAFC]" : "text-text-secondary"
           }`}
         />

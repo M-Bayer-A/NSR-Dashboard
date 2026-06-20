@@ -1,5 +1,5 @@
 import { Icons } from "../../../assets/icons";
-import CustomIconButton from "../../shared/component/CustomIconButton";
+import IconButton from "../../shared/component/IconButton";
 import { useIsSideBarOpen } from "./customSideBar/SideBarProvider";
 
 export default function AppBar({ title }) {
@@ -11,10 +11,10 @@ export default function AppBar({ title }) {
       className="w-full flex flex-row-reverse items-center py-3 px-4 border-b border-[#DFDFDF]
           text-[20px] text-text-primary font-[Cairo] font-bold"
     >
-      <CustomIconButton
-        className={`size-10 shrink-0 border-transparent bg-bg-primary md:hidden 
+      <IconButton
+        className={`shrink-0 border-transparent bg-bg-primary md:hidden 
           ${isOpen ? "rotate-0" : "rotate-180"}`}
-        icon={Icons.Arrow}
+        Icon={Icons.Arrow}
         onClick={() => {
           handleOpenSideBar();
         }}

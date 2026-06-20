@@ -52,23 +52,31 @@ a:hover {
 .light {
   --color-text-primary: #0f172a;
   --color-text-secondary: #64748b;
+  --color-text-primary-inverse: #f8fafc;
+  --color-text-secondary-inverse: #94a3b8;
+
   --color-bg-primary: #ffffff;
   --color-bg-secondary: #f8f8f8;
+
   --color-border: #e2e8f0;
 }
 .dark {
   --color-text-primary: #f8fafc;
   --color-text-secondary: #94a3b8;
+  --color-text-primary-inverse: #0f172a;
+  --color-text-secondary-inverse: #64748b;
+
   --color-bg-primary: #0f172a;
   --color-bg-secondary: #1e293b;
+
   --color-border: #334155;
 }
 
 @theme {
   /* Primary */
-  --color-primary-50: var(--color-primary-50);
-  --color-primary-100: var(--color-primary-100);
-  --color-primary-600: var(--color-primary-600);
+  --color-primary-hover: var(--color-primary-50);
+  --color-primary-accent: var(--color-primary-100);
+  --color-primary-dark: var(--color-primary-600);
 
   /* Gray */
   --color-gray-50: var(--color-gray-50);
@@ -102,6 +110,8 @@ a:hover {
   /* Theme Colors */
   --color-text-primary: var(--color-text-primary);
   --color-text-secondary: var(--color-text-secondary);
+  --color-text-primary-inverse: var(--color-text-primary-inverse);
+  --color-text-secondary-inverse: var(--color-text-secondary-inverse);
 
   --color-bg-primary: var(--color-bg-primary);
   --color-bg-secondary: var(--color-bg-secondary);

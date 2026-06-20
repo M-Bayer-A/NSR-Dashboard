@@ -1,5 +1,5 @@
 import { Icons } from "../../../../assets/icons";
-import CustomIconButton from "../../../shared/component/CustomIconButton";
+import IconButton from "../../../shared/component/IconButton";
 import { useIsSideBarOpen } from "./SideBarProvider";
 
 export default function SideBarHeader({ children }) {
@@ -8,9 +8,9 @@ export default function SideBarHeader({ children }) {
   //
   return (
     <div className="w-full flex flex-row items-center p-4 gap-2">
-      <CustomIconButton
-        className={`size-11 shrink-0 border-transparent bg-bg-primary ${isOpen ? "rotate-0" : "rotate-180"}`}
-        icon={Icons.Arrow}
+      <IconButton
+        className={` shrink-0 border-transparent bg-bg-primary ${isOpen ? "rotate-0" : "rotate-180"}`}
+        Icon={Icons.Arrow}
         onClick={() => {
           handleOpenSideBar();
         }}

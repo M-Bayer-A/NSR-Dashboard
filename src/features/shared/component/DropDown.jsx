@@ -1,31 +1,33 @@
 import { useState } from "react";
-import { customIcons, getIcon } from "../../../helpers/iconsHelper";
-// eslint-disable-next-line no-unused-vars
 import { motion, AnimatePresence } from "framer-motion";
+import { Icons } from "../../../assets/icons";
 
-export default function CustomSelect({
+export default function DropDown({
   className,
-  title,
-  options = [],
+  title = "select",
+  options = [{ id: 1, name: "option_1" }],
   value,
   onChange = () => {},
 }) {
+  //
   const [open, setOpen] = useState(false);
-
+  //
+  const Icon = Icons.Arrow;
+  const selected = options.find((opt) => opt.id == value);
+  //
   return (
-    <div className={`w-fit relative font-[Cairo] ${className}`}>
+    <div className={`relative font-[Cairo] ${className}`}>
       <button
         onClick={() => setOpen(!open)}
         className={`w-full flex flex-row items-center justify-between gap-2 px-3.5 py-1.5
-          border border-zinc-200 rounded-md focus:outline-none focus:border-black`}
+          border border-border-theme rounded-lg focus:outline-none
+          ${!selected ? "text-text-secondary" : "text-text-primary"}`}
       >
-        {options.find((opt) => opt.id == value)?.name || title}
-        <img
-          src={getIcon(customIcons.arrow)}
+        {selected?.name || title}
+        <Icon
           className={`size-6 transition-transform duration-500 ${
-            open ? "rotate-180" : ""
+            open ? "rotate-270" : "rotate-90"
           }`}
-          alt={open ? "Collapse" : "Expand"}
         />
       </button>
       <AnimatePresence>
@@ -44,7 +46,7 @@ export default function CustomSelect({
                   onChange(opt.id);
                   setOpen(false);
                 }}
-                className="px-4 py-2 cursor-pointer hover:bg-sky-100 transition-colors"
+                className="px-4 py-2 cursor-pointer hover:bg-primary-accent hover:text-white transition-colors"
               >
                 {opt.name}
               </li>
