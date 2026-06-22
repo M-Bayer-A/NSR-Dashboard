@@ -47,7 +47,7 @@ export default function MainLayout() {
   };
   //
   return (
-    <SideBarProvider className={"w-screen h-screen overflow-hidden"}>
+    <SideBarProvider>
       <SideBar className={"bg-bg-secondary font-[Cairo]"}>
         <SideBarHeader>
           <h1 className="font-bold text-text-primary text-[20px] text-right truncate">
@@ -79,9 +79,9 @@ export default function MainLayout() {
           />
         </SideBarFooter>
       </SideBar>
-      <MainContent className={"bg-bg-primary"}>
+      <MainContent className={"flex flex-col bg-bg-primary"}>
         <AppBar title={appBarTitle()} />
-        <div className="w-full h-full overflow-auto">
+        <div className="w-full grow overflow-auto">
           <Outlet />
         </div>
       </MainContent>

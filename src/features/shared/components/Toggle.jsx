@@ -7,7 +7,7 @@ export default function Toggle({
 }) {
   return (
     <button
-      className={`w-11 h-fit flex flex-row p-1 rounded-full
+      className={`w-11 h-fit flex flex-row p-0.5 rounded-full
         transition duration-300 ease-in-out cursor-pointer
         ${value ? "justify-end bg-primary-accent" : "justify-start bg-gray-100"}
         ${className}`}

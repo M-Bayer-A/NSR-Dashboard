@@ -1,10 +1,11 @@
 import { Icons } from "../../../../assets/icons";
-import DropDown from "../../../shared/component/DropDown";
-import SearchBar from "../../../shared/component/SearchBar";
-import TextIconButton from "../../../shared/component/TextIconButton";
-import SelectButton from "../../../shared/component/SelectButton";
-import Toggle from "../../../shared/component/Toggle";
+import DropDown from "../../../shared/components/DropDown";
+import SearchField from "../../../shared/components/SearchField";
+import TextIconButton from "../../../shared/components/TextIconButton";
+import SelectButton from "../../../shared/components/SelectButton";
+import Toggle from "../../../shared/components/Toggle";
 import { useState } from "react";
+import InputField from "../../../shared/components/InputField";
 
 export default function HomePage() {
   const [p, setp] = useState(true);
@@ -13,7 +14,7 @@ export default function HomePage() {
   //
   return (
     <div className="flex flex-col gap-4 p-4">
-      <SearchBar placeholder="ابحث في الطلبات" />
+      <SearchField placeholder="ابحث في الطلبات" />
       <DropDown
         title={"h"}
         value={id}
@@ -36,6 +37,12 @@ export default function HomePage() {
         ]}
       />
       <Toggle value={p} onChange={() => setp(!p)} />
+      <InputField
+        placeholder={"scscs"}
+        header={"العنوان"}
+        error={{ value: false, message: "هذا الحقل مطلوب" }}
+        disabled
+      />
     </div>
   );
 }

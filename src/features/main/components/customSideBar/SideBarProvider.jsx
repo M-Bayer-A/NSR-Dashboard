@@ -12,7 +12,7 @@ export default function SideBarProvider({ children, className }) {
   return (
     <SideBarContext.Provider value={{ isOpen, handleOpenSideBar }}>
       <div
-        className={`${className} grow w-full flex flex-row-reverse overflow-hidden`}
+        className={`${className} w-screen h-screen flex flex-row-reverse overflow-hidden`}
       >
         {children}
       </div>

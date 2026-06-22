@@ -1,5 +1,5 @@
 import { Icons } from "../../../assets/icons";
-import IconButton from "../../shared/component/IconButton";
+import IconButton from "../../shared/components/IconButton";
 import { useIsSideBarOpen } from "./customSideBar/SideBarProvider";
 
 export default function AppBar({ title }) {

@@ -5,7 +5,7 @@ export default function MainContent({ children, className }) {
   const { isOpen, handleOpenSideBar } = useIsSideBarOpen();
   //
   return (
-    <div className={`${className} h-full grow`}>
+    <div className={`${className} h-full min-w-0 grow`}>
       {children}
       <div
         onClick={handleOpenSideBar}

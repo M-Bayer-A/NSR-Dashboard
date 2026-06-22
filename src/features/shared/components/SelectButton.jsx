@@ -5,7 +5,9 @@ export default function SelectButton({
     { id: 2, name: "option_2" },
   ],
   value = options[0].id,
-  onChange = () => {},
+  onChange = (id) => {
+    console.log(id);
+  },
 }) {
   //
   return (

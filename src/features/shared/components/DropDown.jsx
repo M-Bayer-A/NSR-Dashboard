@@ -6,8 +6,10 @@ export default function DropDown({
   className,
   title = "select",
   options = [{ id: 1, name: "option_1" }],
-  value = options[0].id,
-  onChange = () => {},
+  value,
+  onChange = (id) => {
+    console.log(id);
+  },
 }) {
   //
   const [open, setOpen] = useState(false);
@@ -25,7 +27,7 @@ export default function DropDown({
       >
         {selected?.name || title}
         <Icon
-          className={`size-6 transition-transform duration-500 ${
+          className={`size-4 transition-transform duration-500 ${
             open ? "rotate-270" : "rotate-90"
           }`}
         />

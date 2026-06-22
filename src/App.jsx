@@ -6,6 +6,7 @@ import {
 import MainLayout from "./features/main/MainLayout";
 import HomePage from "./features/main/sections/home/HomePage";
 import { useEffect } from "react";
+import RequestsPage from "./features/main/sections/requests/RequestsPage";
 
 function App() {
   //
@@ -16,7 +17,7 @@ function App() {
       children: [
         { index: true, element: <Navigate to="/home" replace /> },
         { path: "home", element: <HomePage /> },
-        { path: "requests", element: <HomePage /> },
+        { path: "requests", element: <RequestsPage /> },
         { path: "supervisors", element: <HomePage /> },
         { path: "workers", element: <HomePage /> },
         { path: "reports", element: <HomePage /> },

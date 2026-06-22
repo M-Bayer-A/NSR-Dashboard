@@ -1,11 +1,11 @@
 import { Icons } from "../../../assets/icons";
 
-export default function SearchBar({
+export default function SearchField({
   className,
   placeholder = "",
   value,
-  onChange = (text) => {
-    console.log(text);
+  onChange = (value) => {
+    console.log(value);
   },
 }) {
   //
