@@ -1,5 +1,5 @@
 import { Icons } from "../../../../assets/icons";
-import IconButton from "../../../shared/components/IconButton";
+import IconButton from "../../../../shared/components/IconButton";
 import { useIsSideBarOpen } from "./SideBarProvider";
 
 export default function SideBarHeader({ children }) {

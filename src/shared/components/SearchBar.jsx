@@ -1,4 +1,4 @@
-import { Icons } from "../../../assets/icons";
+import { Icons } from "../../assets/icons";
 import SearchField from "./SearchField";
 import TextButton from "./TextButton";
 import TextIconButton from "./TextIconButton";

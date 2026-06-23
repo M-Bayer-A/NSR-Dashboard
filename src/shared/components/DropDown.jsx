@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Icons } from "../../../assets/icons";
+import { Icons } from "../../assets/icons";
 
 export default function DropDown({
   className,
@@ -25,12 +25,12 @@ export default function DropDown({
           border border-border-theme rounded-lg focus:outline-none
           ${!selected ? "text-text-secondary" : "text-text-primary"}`}
       >
-        {selected?.name || title}
         <Icon
-          className={`size-4 transition-transform duration-500 ${
+          className={`size-4 transition-transform duration-300 ${
             open ? "rotate-270" : "rotate-90"
           }`}
         />
+        {selected?.name || title}
       </button>
       <AnimatePresence>
         {open && (

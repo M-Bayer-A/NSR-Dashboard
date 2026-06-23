@@ -1,3 +1,4 @@
+import AppBar from "./components/AppBar";
 import SideBarProvider from "./components/customSideBar/SideBarProvider";
 import SideBar from "./components/customSideBar/SideBar";
 import SideBarHeader from "./components/customSideBar/SideBarHeader";
@@ -5,9 +6,9 @@ import SideBarContent from "./components/customSideBar/SideBarContent";
 import SideBarButton from "./components/customSideBar/SideBarButton";
 import SideBarFooter from "./components/customSideBar/SideBarFooter";
 import MainContent from "./components/customSideBar/MainContent";
+//
 import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import { Icons } from "../../assets/icons";
-import AppBar from "./components/AppBar";
 
 export default function MainLayout() {
   const sectionList = [
@@ -58,7 +59,7 @@ export default function MainLayout() {
           {sectionList.map((section) => (
             <SideBarButton
               key={section.title}
-              active={path == section.url}
+              active={path.startsWith(section.url)}
               icon={section.icon}
               title={section.title}
               onClick={() => navigate(section.url)}

@@ -1,11 +1,11 @@
+import DropDown from "../../../../shared/components/DropDown";
+import SearchField from "../../../../shared/components/SearchField";
+import TextIconButton from "../../../../shared/components/TextIconButton";
+import SelectButton from "../../../../shared/components/TextIconButton";
+import Toggle from "../../../../shared/components/Toggle";
+import InputField from "../../../../shared/components/InputField";
 import { Icons } from "../../../../assets/icons";
-import DropDown from "../../../shared/components/DropDown";
-import SearchField from "../../../shared/components/SearchField";
-import TextIconButton from "../../../shared/components/TextIconButton";
-import SelectButton from "../../../shared/components/SelectButton";
-import Toggle from "../../../shared/components/Toggle";
 import { useState } from "react";
-import InputField from "../../../shared/components/InputField";
 
 export default function HomePage() {
   const [p, setp] = useState(true);

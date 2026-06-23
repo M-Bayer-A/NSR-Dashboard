@@ -1,4 +1,4 @@
-import DataTable from "../../../shared/components/DateTable";
+import DataTable from "../../../../shared/components/DateTable";
 import ReuestsSearchHeader from "./components/ReuestsSearchHeader";
 
 export default function RequestsPage() {
