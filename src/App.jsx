@@ -4,9 +4,10 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import { useEffect } from "react";
-import MainLayout from "./app/mainLayout/MainLayout";
-import HomePage from "./app/mainLayout/pages/homePage/HomePage";
-import RequestsPage from "./app/mainLayout/pages/requestsPage/RequestsPage";
+import MainLayout from "./app/layouts/mainLayout/MainLayout";
+import HomePage from "./app/pages/homePage/HomePage";
+import RequestsPage from "./app/pages/requests/requestsPage/RequestsPage";
+import RequestDetailsPage from "./app/pages/requests/requestDetailsPage/RequestDetailsPage";
 
 function App() {
   //
@@ -24,10 +25,10 @@ function App() {
               index: true,
               element: <RequestsPage />,
             },
-            // {
-            //   path: ":id",
-            //   element: <RequestDetailsPage />,
-            // },
+            {
+              path: ":id",
+              element: <RequestDetailsPage />,
+            },
           ],
         },
         { path: "supervisors", element: <HomePage /> },
@@ -49,11 +50,7 @@ function App() {
     document.documentElement.classList.add("light");
   }, []);
   //
-  return (
-    // <div className="light">
-    <RouterProvider router={router} />
-    // </div>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;
