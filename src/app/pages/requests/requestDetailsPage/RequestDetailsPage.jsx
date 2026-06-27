@@ -1,42 +1,27 @@
-import { Icons } from "../../../../assets/icons";
-import IconButton from "../../../shared/components/IconButton";
-import Tag from "../../../shared/components/Tag";
-import TextIconButton from "../../../shared/components/TextIconButton";
-import PageLayout from "../../../layouts/mainLayout/components/PageLayout";
+import PageLayout from "../../../layouts/pageLayout/PageLayout";
+import ProblemDetails from "./components/ProblemDetails";
+import RequestDetailsHeader from "./components/RequestDetailsHeader";
+import RequestInfoCard from "./components/RequestInfoCard";
+import RequestTimeLine from "./components/RequestTimeLine";
+import SolutionDetails from "./components/SolutionDetails";
+import UsedMaterials from "./components/UsedMaterials";
 
 export default function RequestDetailsPage() {
   return (
     <PageLayout title={"تفاصيل طلب"}>
-      <div className="w-full flex flex-col p-4 gap-4">
-        {/* dev */}
-        <div className="w-full flex flex-row justify-between gap-3">
-          <TextIconButton
-            title="تصدير"
-            Icon={Icons.Reports}
-            className={
-              "bg-bg-secondary border-border-theme text-primary-accent"
-            }
-          />
-          <div className="flex flex-row gap-6 items-center">
-            <Tag status="Completed" />
-            <p className="text-text-primary font-medium font-[Cairo]">#8512</p>
-            <div className="flex flex-row gap-1">
-              <IconButton
-                Icon={Icons.ArrowLeft}
-                className={
-                  "bg-bg-secondary border-border-theme text-primary-accent"
-                }
-              />
-              <IconButton
-                Icon={Icons.ArrowRight}
-                className={
-                  "bg-bg-secondary border-border-theme text-primary-accent"
-                }
-              />
-            </div>
+      <div className="w-full flex flex-col p-4 gap-4 font-[Cairo]">
+        <RequestDetailsHeader />
+        <div className="w-full flex flex-row gap-2.5">
+          <div className="flex flex-col gap-2.5 grow">
+            <RequestInfoCard />
+            <RequestTimeLine />
+          </div>
+          <div className=" flex flex-col gap-2.5 grow">
+            <ProblemDetails />
+            <UsedMaterials />
+            <SolutionDetails />
           </div>
         </div>
-        {/* ==dev== */}
       </div>
     </PageLayout>
   );

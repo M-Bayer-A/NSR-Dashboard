@@ -1,8 +1,8 @@
-import { Icons } from "../../../../assets/icons";
-import IconButton from "../../../shared/components/IconButton";
-import { useIsSideBarOpen } from "./customSideBar/SideBarProvider";
+import { Icons } from "../../../assets/icons";
+import IconButton from "../../shared/components/IconButton";
+import { useIsSideBarOpen } from "../mainLayout/components/customSideBar/SideBarProvider";
 
-export default function MainContentLayout({ children, title }) {
+export default function PageLayout({ children, title }) {
   //
   const { isOpen, handleOpenSideBar } = useIsSideBarOpen();
   //

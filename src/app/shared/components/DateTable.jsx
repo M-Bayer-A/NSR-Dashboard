@@ -1,4 +1,5 @@
 export default function DataTable({
+  className,
   columns = [
     {
       accessorKey: "accessorKey",
@@ -11,6 +12,7 @@ export default function DataTable({
       accessorKey: "value",
     },
   ],
+  selectColumn = true,
   selectedIds = [],
   setSelectedIds = (param) => {
     console.log(param);
@@ -33,7 +35,10 @@ export default function DataTable({
   const isAllSelected = data.length > 0 && selectedIds.length === data.length;
   //
   return (
-    <div dir={"rtl"} className="w-full flex flex-col grow overflow-hidden">
+    <div
+      dir={"rtl"}
+      className={`${className} w-full flex flex-col overflow-hidden`}
+    >
       <div className="w-full max-h-full overflow-auto">
         <table
           className="min-w-full 
@@ -45,20 +50,22 @@ export default function DataTable({
               className="bg-bg-secondary text-text-secondary
               sticky top-0 z-2"
             >
-              <th className={`p-3 rounded-r-xl`}>
-                <input
-                  className="align-middle"
-                  type="checkbox"
-                  checked={isAllSelected}
-                  onChange={toggleAll}
-                />
-              </th>
+              {selectColumn && (
+                <th className={`p-3 rounded-r-xl`}>
+                  <input
+                    className="align-middle"
+                    type="checkbox"
+                    checked={isAllSelected}
+                    onChange={toggleAll}
+                  />
+                </th>
+              )}
               {columns.map((column) => {
                 if (column.isVisible) {
                   return (
                     <th
                       key={column.accessorKey}
-                      className={`p-3 last:rounded-l-xl`}
+                      className={`p-3 ${!selectColumn ? "first:rounded-r-xl" : ""} last:rounded-l-xl`}
                     >
                       {column.header}
                     </th>
@@ -70,20 +77,22 @@ export default function DataTable({
           <tbody>
             {data.map((row) => (
               <tr key={row.id} className="bg-bg-secondary">
-                <td className="p-3 rounded-r-xl">
-                  <input
-                    className="align-middle"
-                    type="checkbox"
-                    checked={selectedIds.includes(row.id)}
-                    onChange={() => toggleRow(row.id)}
-                  />
-                </td>
+                {selectColumn && (
+                  <td className="p-3 rounded-r-xl">
+                    <input
+                      className="align-middle"
+                      type="checkbox"
+                      checked={selectedIds.includes(row.id)}
+                      onChange={() => toggleRow(row.id)}
+                    />
+                  </td>
+                )}
                 {columns.map((column) => {
                   if (column.isVisible) {
                     return (
                       <td
                         key={`${row.id}-${column.accessorKey}`}
-                        className="p-3 last:rounded-l-xl"
+                        className={`p-3 ${!selectColumn ? "first:rounded-r-xl" : ""} last:rounded-l-xl`}
                       >
                         <div className="flex justify-center items-center">
                           {row[column.accessorKey] || "Not available"}

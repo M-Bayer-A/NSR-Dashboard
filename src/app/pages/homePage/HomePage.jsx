@@ -5,8 +5,8 @@ import SelectButton from "../../shared/components/SelectButton";
 import Toggle from "../../shared/components/Toggle";
 import InputField from "../../shared/components/InputField";
 import { useState } from "react";
-import MainContentLayout from "../../layouts/mainLayout/components/PageLayout";
 import { Icons } from "../../../assets/icons";
+import PageLayout from "../../layouts/pageLayout/PageLayout";
 
 export default function HomePage() {
   //
@@ -14,7 +14,7 @@ export default function HomePage() {
   const [id, setId] = useState(1);
   //
   return (
-    <MainContentLayout title={"الرئيسية"}>
+    <PageLayout title={"الرئيسية"}>
       <div className="flex flex-col gap-4 p-4">
         <SearchField placeholder="ابحث في الطلبات" />
         <DropDown
@@ -46,6 +46,6 @@ export default function HomePage() {
           disabled
         />
       </div>
-    </MainContentLayout>
+    </PageLayout>
   );
 }

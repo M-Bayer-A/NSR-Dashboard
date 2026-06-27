@@ -1,5 +1,5 @@
+import PageLayout from "../../../layouts/pageLayout/PageLayout";
 import DataTable from "../../../shared/components/DateTable";
-import PageLayout from "../../../layouts/mainLayout//components/PageLayout";
 import ReuestsSearchHeader from "./components/ReuestsSearchHeader";
 
 export default function RequestsPage() {
@@ -7,7 +7,7 @@ export default function RequestsPage() {
     <PageLayout title={"الطلبات"}>
       <div className="w-fit min-w-full h-full flex flex-col p-4 gap-4">
         <ReuestsSearchHeader />
-        <DataTable />
+        <DataTable className={"grow"} />
       </div>
     </PageLayout>
   );
