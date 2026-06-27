@@ -1,4 +1,5 @@
 import PageLayout from "../../../layouts/pageLayout/PageLayout";
+import BackDrop from "../../../shared/components/BackDrop";
 import DataTable from "../../../shared/components/DateTable";
 import SearchBar from "../../../shared/components/SearchBar";
 import TextButton from "../../../shared/components/TextButton";
@@ -22,6 +23,7 @@ export default function SupervisorsPage() {
         <SearchBar />
         <DataTable className={"grow"} />
       </div>
+      <BackDrop />
     </PageLayout>
   );
 }
