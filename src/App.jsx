@@ -8,7 +8,7 @@ import MainLayout from "./app/layouts/mainLayout/MainLayout";
 import HomePage from "./app/pages/homePage/HomePage";
 import RequestsPage from "./app/pages/requests/requestsPage/RequestsPage";
 import RequestDetailsPage from "./app/pages/requests/requestDetailsPage/RequestDetailsPage";
-import SupervisorsPage from "./app/pages/supervisors/supervisorsPage/supervisorsPage";
+import SupervisorsPage from "./app/pages/supervisors/supervisorsPage/SupervisorsPage";
 
 function App() {
   //
