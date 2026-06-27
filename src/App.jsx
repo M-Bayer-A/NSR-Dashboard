@@ -8,6 +8,7 @@ import MainLayout from "./app/layouts/mainLayout/MainLayout";
 import HomePage from "./app/pages/homePage/HomePage";
 import RequestsPage from "./app/pages/requests/requestsPage/RequestsPage";
 import RequestDetailsPage from "./app/pages/requests/requestDetailsPage/RequestDetailsPage";
+import SupervisorsPage from "./app/pages/supervisors/supervisorsPage/supervisorsPage";
 
 function App() {
   //
@@ -31,7 +32,19 @@ function App() {
             },
           ],
         },
-        { path: "supervisors", element: <HomePage /> },
+        {
+          path: "supervisors",
+          children: [
+            {
+              index: true,
+              element: <SupervisorsPage />,
+            },
+            {
+              path: ":id",
+              element: <RequestDetailsPage />,
+            },
+          ],
+        },
         { path: "workers", element: <HomePage /> },
         { path: "reports", element: <HomePage /> },
         { path: "notifications", element: <HomePage /> },

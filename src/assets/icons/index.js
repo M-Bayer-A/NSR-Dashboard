@@ -39,6 +39,7 @@ import Trash from "./Icon=Trash.svg?react";
 import User from "./Icon=User.svg?react";
 import Users from "./Icon=Users.svg?react";
 import Cancelled from "./Icon=Cancelled.svg?react";
+import Search from "./Icon=Search.svg?react";
 
 export const Icons = {
   Accepted,
@@ -82,4 +83,5 @@ export const Icons = {
   User,
   Users,
   Cancelled,
+  Search,
 };

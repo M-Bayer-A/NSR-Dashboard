@@ -11,7 +11,7 @@ export default function SearchBar() {
         <TextIconButton
           className={"bg-bg-secondary border-border-theme text-primary-accent"}
           title="فلترة"
-          Icon={Icons.Bill}
+          Icon={Icons.Filter}
         />
         <TextButton
           className={
