@@ -1,25 +1,19 @@
-// export default function BackDrop() {
-//   return (
-//     <div className="bg-black opacity-50 fixed inset-0 z-100 h-screen w-screen"></div>
-//   );
-// }
-export default function BackDrop({ open, onClick, className = "", children }) {
-  if (!open) return null;
-
+export default function BackDrop({
+  open = false,
+  onClick = () => {},
+  children,
+}) {
   return (
     <div
-      className={`
-        fixed inset-0
-        z-80
-        bg-white/50
-        backdrop-blur-[2px]
-        flex items-center justify-center
-        transition-opacity duration-300
-        ${className}
-      `}
-      onClick={onClick}
+      onClick={(e) => {
+        if (e.target === e.currentTarget) {
+          onClick();
+        }
+      }}
+      className={`fixed inset-0 z-80 flex justify-center items-center
+        bg-white/30 backdrop-blur-[1px] transition-opacity duration-300 ease-in-out
+          ${open ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}
     >
-      <div className="size-50 bg-amber-400"></div>
       {children}
     </div>
   );

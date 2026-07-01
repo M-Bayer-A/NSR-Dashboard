@@ -12,7 +12,7 @@ export default function DataTable({
       accessorKey: "value",
     },
   ],
-  selectColumn = true,
+  selectRows = true,
   selectedIds = [],
   setSelectedIds = (param) => {
     console.log(param);
@@ -41,7 +41,7 @@ export default function DataTable({
     >
       <div className="w-full max-h-full overflow-auto">
         <table
-          className="min-w-full 
+          className="min-w-full
             text-nowrap text-center text-[14px] font-[Cairo]
             border-separate border-spacing-y-2.5"
         >
@@ -50,7 +50,7 @@ export default function DataTable({
               className="bg-bg-secondary text-text-secondary
               sticky top-0 z-2"
             >
-              {selectColumn && (
+              {selectRows && (
                 <th className={`p-3 rounded-r-xl`}>
                   <input
                     className="align-middle"
@@ -65,7 +65,7 @@ export default function DataTable({
                   return (
                     <th
                       key={column.accessorKey}
-                      className={`p-3 ${!selectColumn ? "first:rounded-r-xl" : ""} last:rounded-l-xl`}
+                      className={`p-3 ${!selectRows ? "first:rounded-r-xl" : ""} last:rounded-l-xl`}
                     >
                       {column.header}
                     </th>
@@ -77,7 +77,7 @@ export default function DataTable({
           <tbody>
             {data.map((row) => (
               <tr key={row.id} className="bg-bg-secondary">
-                {selectColumn && (
+                {selectRows && (
                   <td className="p-3 rounded-r-xl">
                     <input
                       className="align-middle"
@@ -92,7 +92,7 @@ export default function DataTable({
                     return (
                       <td
                         key={`${row.id}-${column.accessorKey}`}
-                        className={`p-3 ${!selectColumn ? "first:rounded-r-xl" : ""} last:rounded-l-xl`}
+                        className={`p-3 ${!selectRows ? "first:rounded-r-xl" : ""} last:rounded-l-xl`}
                       >
                         <div className="flex justify-center items-center">
                           {row[column.accessorKey] || "Not available"}

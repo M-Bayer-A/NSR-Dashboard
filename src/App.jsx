@@ -9,6 +9,7 @@ import HomePage from "./app/pages/homePage/HomePage";
 import RequestsPage from "./app/pages/requests/requestsPage/RequestsPage";
 import RequestDetailsPage from "./app/pages/requests/requestDetailsPage/RequestDetailsPage";
 import SupervisorsPage from "./app/pages/supervisors/supervisorsPage/SupervisorsPage";
+import SupervisorAccountPage from "./app/pages/supervisors/supervisorAccountPage/SupervisorAccountPage";
 
 function App() {
   //
@@ -41,7 +42,7 @@ function App() {
             },
             {
               path: ":id",
-              element: <RequestDetailsPage />,
+              element: <SupervisorAccountPage />,
             },
           ],
         },

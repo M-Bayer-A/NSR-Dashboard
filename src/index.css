@@ -13,7 +13,9 @@ html {
 a:hover {
   cursor: pointer; /* changes cursor to a hand */
 }
-
+.recharts-wrapper *:focus {
+  outline: none;
+}
 /* ==COLORS== */
 @layer base {
   * {
@@ -175,4 +177,24 @@ a:hover {
   src: url("/fonts/tajawal/Tajawal-Black.ttf") format("truetype");
   font-weight: 900;
   font-style: normal;
+}
+/*  */
+/* Firefox */
+.thin-scrollbar {
+  scrollbar-width: thin;
+}
+
+/* Chrome, Edge, Safari */
+.thin-scrollbar::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.thin-scrollbar::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 9999px;
+}
+
+.thin-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #666;
 }

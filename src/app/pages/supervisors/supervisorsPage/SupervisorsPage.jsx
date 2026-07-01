@@ -1,8 +1,10 @@
 import PageLayout from "../../../layouts/pageLayout/PageLayout";
-import BackDrop from "../../../shared/components/BackDrop";
 import DataTable from "../../../shared/components/DateTable";
 import SearchBar from "../../../shared/components/SearchBar";
 import TextButton from "../../../shared/components/TextButton";
+// import AddSupervisorPopup from "./components/AddSupervisorPopup";
+// import DeleteSupervisorPopup from "./components/DeleteSupervisorPopup";
+// import EditSupervisorPopup from "./components/EditSupervisorPopup";
 
 export default function SupervisorsPage() {
   return (
@@ -23,7 +25,9 @@ export default function SupervisorsPage() {
         <SearchBar />
         <DataTable className={"grow"} />
       </div>
-      <BackDrop />
+      {/* <AddSupervisorPopup /> */}
+      {/* <DeleteSupervisorPopup /> */}
+      {/* <EditSupervisorPopup /> */}
     </PageLayout>
   );
 }

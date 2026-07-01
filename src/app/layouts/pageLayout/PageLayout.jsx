@@ -9,7 +9,7 @@ export default function PageLayout({ children, title, action = <></> }) {
   return (
     <div className="w-full h-full flex flex-col">
       {/* AppBar */}
-      <div className="w-full flex flex-row-reverse justify-between items-center py-3 px-4 gap-2.5 border-b border-bord">
+      <div className="w-full flex flex-row-reverse justify-between items-center py-3 px-4 gap-2.5 border-b border-border-theme">
         <div className="w-fit flex flex-row items-center gap-1">
           <h1 className="text-[20px] text-text-primary font-[Cairo] font-bold">
             {title}
@@ -23,7 +23,7 @@ export default function PageLayout({ children, title, action = <></> }) {
             }}
           />
         </div>
-        <div className="w-fit flex flex-row items-center gap-1">{action}</div>
+        <div className="w-fit flex flex-row items-center gap-2">{action}</div>
       </div>
       {/* ==AppBar== */}
       <div className="w-full grow overflow-auto">{children}</div>

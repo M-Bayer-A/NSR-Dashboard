@@ -29,7 +29,7 @@ export default function UsedMaterials() {
           { name: "name", number: "cscsc" },
           { name: "name", number: "cscsc" },
         ]}
-        selectColumn={false}
+        selectRows={false}
       />
     </div>
   );

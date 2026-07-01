@@ -21,7 +21,7 @@ export default function DropDown({
     <div className={`relative font-[Cairo] ${className}`}>
       <button
         onClick={() => setOpen(!open)}
-        className={`w-full flex flex-row items-center justify-between gap-2 px-3.5 py-1.5
+        className={`w-full h-full flex flex-row items-center justify-between gap-2 px-3.5 py-1.5
           border border-border-theme rounded-lg focus:outline-none
           ${!selected ? "text-text-secondary" : "text-text-primary"}`}
       >
