@@ -11,6 +11,9 @@ import RequestDetailsPage from "./app/pages/requests/ui/requestDetailsPage/Reque
 import SupervisorsPage from "./app/pages/supervisors/supervisorsPage/SupervisorsPage";
 import SupervisorAccountPage from "./app/pages/supervisors/supervisorAccountPage/SupervisorAccountPage";
 import { ToastContainer } from "react-toastify";
+import LoadingBackDrop from "./app/shared/components/LoadingBackDrop";
+import { useSelector } from "react-redux";
+import { actionLoadingSelector } from "./app/shared/states/actionLoadingState/actionLoadingSelector";
 
 function App() {
   //
@@ -65,9 +68,12 @@ function App() {
     document.documentElement.classList.add("light");
   }, []);
   //
+  const isActionLoading = useSelector(actionLoadingSelector.isActionLoading);
+  //
   return (
     <>
       <RouterProvider router={router} />
+      <LoadingBackDrop open={isActionLoading} />
       <ToastContainer
         toastStyle={{ fontFamily: "Cairo" }}
         position="bottom-right"

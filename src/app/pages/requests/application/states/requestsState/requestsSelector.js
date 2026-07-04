@@ -37,7 +37,6 @@ export const requestsSelectors = {
     dropDowns: (state) => state.requests.isLoaded.dropDowns,
   },
   loading: {
-    action: (state) => state.requests.isLoading.action,
     table: (state) => state.requests.isLoading.table,
     dropDowns: (state) => state.requests.isLoading.dropDowns,
   },

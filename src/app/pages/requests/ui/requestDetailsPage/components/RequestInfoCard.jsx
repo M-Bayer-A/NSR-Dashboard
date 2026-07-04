@@ -1,27 +1,44 @@
+import { useSelector } from "react-redux";
 import { Icons } from "../../../../../../assets/icons";
+import { requestDetailSelector } from "../../../application/states/requestDetailsState/requestDetailsSelector";
 import Tag from "../../../../../shared/components/Tag";
 
 export default function RequestInfoCard() {
   //
+  const createDate = useSelector(requestDetailSelector.info.createDate);
+  const lastUpdateDate = useSelector(requestDetailSelector.info.lastUpdateDate);
+  const creator = useSelector(requestDetailSelector.info.creator);
+  const worker = useSelector(requestDetailSelector.info.worker);
+  const importance = useSelector(requestDetailSelector.info.importance);
+  const type = useSelector(requestDetailSelector.info.type);
+  const unit = useSelector(requestDetailSelector.info.unit);
+  const floor = useSelector(requestDetailSelector.info.floor);
+  const suite = useSelector(requestDetailSelector.info.suite);
+  const room = useSelector(requestDetailSelector.info.room);
+  //
   const info = [
-    { icon: Icons.Calendar, label: ": تاريخ الإنشاء", value: "سؤسؤسؤ" },
+    { icon: Icons.Calendar, label: ": تاريخ الإنشاء", value: createDate },
     {
       icon: Icons.Calendar,
       label: "تاريخ آخر تحديث :",
-      value: <Tag status="completed" />,
+      value: lastUpdateDate,
     },
-    { icon: Icons.User, label: ": منشئ الطلب", value: "" },
+    { icon: Icons.User, label: ": منشئ الطلب", value: creator },
     {
       icon: Icons.MaintenanceWorker,
       label: ": عامل الصيانة المكلف",
-      value: "",
+      value: worker,
     },
-    { icon: Icons.Info, label: ": الأولوية", value: "" },
-    { icon: Icons.Info, label: ": النوع", value: "" },
-    { icon: Icons.Building, label: ": المبنى", value: "" },
-    { icon: Icons.Floor, label: ": الطابق", value: "" },
-    { icon: Icons.Floor, label: ": الجناح", value: "" },
-    { icon: Icons.Room, label: ": الغرفة", value: "" },
+    {
+      icon: Icons.Info,
+      label: ": الأولوية",
+      value: <Tag status={importance} />,
+    },
+    { icon: Icons.Info, label: ": النوع", value: type },
+    { icon: Icons.Building, label: ": المبنى", value: unit },
+    { icon: Icons.Floor, label: ": الطابق", value: floor },
+    { icon: Icons.Floor, label: ": الجناح", value: suite },
+    { icon: Icons.Room, label: ": الغرفة", value: room },
   ];
   //
   return (

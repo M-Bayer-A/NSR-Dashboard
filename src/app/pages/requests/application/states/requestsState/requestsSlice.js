@@ -1,9 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { getRequestsTableReducer } from "./extraReducers/getRequestsTableReducer";
 import { getFilterOptionsReducer } from "./extraReducers/getFilterOptionsReducer";
-import { acceptRequestReducer } from "./extraReducers/acceptRequestReducer";
-import { rejectRequestReducer } from "./extraReducers/rejectRequestReducer";
-
 //
 const initialState = {
   search: {
@@ -39,7 +36,6 @@ const initialState = {
     dropDowns: false,
   },
   isLoading: {
-    action: false,
     table: false,
     dropDowns: false,
   },
@@ -119,8 +115,6 @@ export const requestsSlice = createSlice({
   extraReducers(builder) {
     getRequestsTableReducer(builder);
     getFilterOptionsReducer(builder);
-    acceptRequestReducer(builder);
-    rejectRequestReducer(builder);
   },
 });
 //

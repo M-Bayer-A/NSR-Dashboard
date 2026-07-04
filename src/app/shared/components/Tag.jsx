@@ -49,6 +49,25 @@ const tagConfigs = {
     bgColor: "bg-yellow-500",
     icon: Icons.Clock,
   },
+  // Importances
+  normal: {
+    label: "عادي",
+    textColor: "text-gray-900",
+    bgColor: "bg-bg-primary",
+    icon: Icons.Flag,
+  },
+  medium: {
+    label: "متوسط",
+    textColor: "text-yellow-500",
+    bgColor: "bg-yellow-100",
+    icon: Icons.Flag,
+  },
+  urgent: {
+    label: "عاجل",
+    textColor: "text-red-500",
+    bgColor: "bg-red-100",
+    icon: Icons.Flag,
+  },
 };
 export default function Tag({ status = "completed", filled = true }) {
   const tagConfig = tagConfigs[status.toLowerCase()];
@@ -71,7 +90,7 @@ export default function Tag({ status = "completed", filled = true }) {
     >
       <span>{tagConfig.label}</span>
 
-      {Icon && <Icon className="size-6" />}
+      {Icon && <Icon className="" />}
     </div>
   );
 }

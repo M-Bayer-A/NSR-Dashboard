@@ -1,6 +1,13 @@
+import { useSelector } from "react-redux";
 import { Icons } from "../../../../../../assets/icons";
+import { requestDetailSelector } from "../../../application/states/requestDetailsState/requestDetailsSelector";
 
 export default function ProblemDetails() {
+  //
+  const title = useSelector(requestDetailSelector.problem.title);
+  const notes = useSelector(requestDetailSelector.problem.notes);
+  const photos = useSelector(requestDetailSelector.problem.photos);
+  //
   return (
     <div
       className="flex flex-col gap-2.5 p-3
@@ -17,15 +24,19 @@ export default function ProblemDetails() {
             <Icons.Photo />
             <span className="text-[16px] font-bold">صور الطلب</span>
           </div>
-          <div className="h-56.25 w-87.5 bg-gray-500" />
+          <img
+            className="h-56.25 w-87.5 bg-gray-500"
+            src={photos}
+            alt="photo"
+          />
         </div>
         {/* ==Problem Photos== */}
         {/* Problem info */}
         <div className="w-full flex flex-col gap-2 text-right">
           <p className="font-bold">عنوان المشكلة</p>
-          <span>بطاطا مقلية</span>
+          <span>{title}</span>
           <p className="font-bold">ملاحظات إضافية</p>
-          <span>البطاطا غير مقلية</span>
+          <span>{notes}</span>
         </div>
         {/* ==Problem Info== */}
       </div>

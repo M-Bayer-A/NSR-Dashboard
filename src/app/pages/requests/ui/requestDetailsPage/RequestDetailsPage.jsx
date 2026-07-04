@@ -1,14 +1,47 @@
+import { useDispatch } from "react-redux";
+import { Icons } from "../../../../../assets/icons";
 import PageLayout from "../../../../layouts/pageLayout/PageLayout";
+import TextIconButton from "../../../../shared/components/TextIconButton";
 import ProblemDetails from "./components/ProblemDetails";
+import RejectRequestPopup from "./components/RejectRequestPopup";
 import RequestDetailsHeader from "./components/RequestDetailsHeader";
 import RequestInfoCard from "./components/RequestInfoCard";
 import RequestTimeLine from "./components/RequestTimeLine";
 import SolutionDetails from "./components/SolutionDetails";
 import UsedMaterials from "./components/UsedMaterials";
+import { setRejectRequestPopupOpen } from "../../application/states/requestDetailsState/requestDetailsSlice";
+import { acceptRequestUseCase } from "../../application/useCases/acceptRequestUseCase";
 
 export default function RequestDetailsPage() {
+  //
+  const dispatch = useDispatch();
+  //
   return (
-    <PageLayout title={"تفاصيل طلب"}>
+    <PageLayout
+      title={"تفاصيل طلب"}
+      action={
+        <>
+          <TextIconButton
+            className={"bg-red-100 border-none text-red-500"}
+            title="رفض الطلب"
+            Icon={Icons.Rejected}
+            onClick={() => {
+              dispatch(setRejectRequestPopupOpen({ value: true }));
+            }}
+          />
+          <TextIconButton
+            className={
+              "bg-primary-accent border-none text-text-primary-inverse"
+            }
+            title="تأكيد الطلب"
+            Icon={Icons.Accepted}
+            onClick={() => {
+              dispatch(acceptRequestUseCase());
+            }}
+          />
+        </>
+      }
+    >
       <div className="w-full flex flex-col p-4 gap-4 font-[Cairo]">
         <RequestDetailsHeader />
         <div className="w-full flex flex-row gap-2.5">
@@ -22,6 +55,7 @@ export default function RequestDetailsPage() {
             <SolutionDetails />
           </div>
         </div>
+        <RejectRequestPopup />
       </div>
     </PageLayout>
   );

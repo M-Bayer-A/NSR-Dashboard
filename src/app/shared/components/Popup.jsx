@@ -19,7 +19,9 @@ export default function Popup({
         bg-bg-primary border border-border-theme rounded-3xl font-[Cairo] text-right"
       >
         <h1 className="font-bold text-xl">{title}</h1>
-        <div className="w-full h-fit max-h-full overflow-auto">{children}</div>
+        <div className="w-full h-fit max-h-full p-0.5 overflow-auto">
+          {children}
+        </div>
         {/* Action Buttons */}
         <div className="w-full flex flex-row justify-end items-center gap-2.5">
           {actions}

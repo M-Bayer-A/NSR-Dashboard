@@ -1,6 +1,11 @@
+import { useSelector } from "react-redux";
 import DataTable from "../../../../../shared/components/DateTable";
+import { requestDetailSelector } from "../../../application/states/requestDetailsState/requestDetailsSelector";
 
 export default function UsedMaterials() {
+  //
+  const tableData = useSelector(requestDetailSelector.usedMaterials);
+  //
   return (
     <div
       className="flex flex-col gap-2.5 p-3
@@ -21,14 +26,7 @@ export default function UsedMaterials() {
             isVisible: true,
           },
         ]}
-        data={[
-          { name: "name", number: "cscsc" },
-          { name: "name", number: "cscsc" },
-          { name: "name", number: "cscsc" },
-          { name: "name", number: "cscsc" },
-          { name: "name", number: "cscsc" },
-          { name: "name", number: "cscsc" },
-        ]}
+        data={tableData}
         selectRows={false}
       />
     </div>
