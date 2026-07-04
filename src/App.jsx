@@ -5,11 +5,12 @@ import {
 } from "react-router-dom";
 import { useEffect } from "react";
 import MainLayout from "./app/layouts/mainLayout/MainLayout";
-import HomePage from "./app/pages/homePage/HomePage";
-import RequestsPage from "./app/pages/requests/requestsPage/RequestsPage";
-import RequestDetailsPage from "./app/pages/requests/requestDetailsPage/RequestDetailsPage";
+import HomePage from "./app/pages/home/ui/homePage/HomePage";
+import RequestsPage from "./app/pages/requests/ui/requestsPage/RequestsPage";
+import RequestDetailsPage from "./app/pages/requests/ui/requestDetailsPage/RequestDetailsPage";
 import SupervisorsPage from "./app/pages/supervisors/supervisorsPage/SupervisorsPage";
 import SupervisorAccountPage from "./app/pages/supervisors/supervisorAccountPage/SupervisorAccountPage";
+import { ToastContainer } from "react-toastify";
 
 function App() {
   //
@@ -64,7 +65,24 @@ function App() {
     document.documentElement.classList.add("light");
   }, []);
   //
-  return <RouterProvider router={router} />;
+  return (
+    <>
+      <RouterProvider router={router} />
+      <ToastContainer
+        toastStyle={{ fontFamily: "Cairo" }}
+        position="bottom-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick={false}
+        rtl={true}
+        draggable={false}
+        pauseOnFocusLoss
+        pauseOnHover
+        theme="light"
+      />
+    </>
+  );
 }
 
 export default App;

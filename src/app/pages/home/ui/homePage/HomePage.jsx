@@ -1,12 +1,12 @@
-import DropDown from "../../shared/components/DropDown";
-import SearchField from "../../shared/components/SearchField";
-import TextIconButton from "../../shared/components/TextIconButton";
-import SelectButton from "../../shared/components/SelectButton";
-import Toggle from "../../shared/components/Toggle";
-import InputField from "../../shared/components/InputField";
+import DropDown from "../../../../shared/components/DropDown";
+import SearchField from "../../../../shared/components/SearchField";
+import TextIconButton from "../../../../shared/components/TextIconButton";
+import SelectButton from "../../../../shared/components/SelectButton";
+import Toggle from "../../../../shared/components/Toggle";
+import InputField from "../../../../shared/components/InputField";
 import { useState } from "react";
-import { Icons } from "../../../assets/icons";
-import PageLayout from "../../layouts/pageLayout/PageLayout";
+import { Icons } from "../../../../../assets/icons";
+import PageLayout from "../../../../layouts/pageLayout/PageLayout";
 
 export default function HomePage() {
   //

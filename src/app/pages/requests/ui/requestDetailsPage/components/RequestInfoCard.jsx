@@ -1,5 +1,5 @@
-import { Icons } from "../../../../../assets/icons";
-import Tag from "../../../../shared/components/Tag";
+import { Icons } from "../../../../../../assets/icons";
+import Tag from "../../../../../shared/components/Tag";
 
 export default function RequestInfoCard() {
   //

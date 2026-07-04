@@ -19,20 +19,24 @@ export default function DataTable({
   },
 }) {
   //
-  const toggleRow = (id) => {
-    setSelectedIds((prev) =>
-      prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id],
-    );
-  };
+  const isAllSelected = data.length > 0 && selectedIds.length === data.length;
+  //
   const toggleAll = () => {
     if (isAllSelected) {
       setSelectedIds([]);
     } else {
-      setSelectedIds(data.map((row) => row.id));
+      let newArray = data.map((row) => row.id);
+      setSelectedIds(newArray);
     }
   };
+  //
+  const toggleRow = (id) => {
+    let newArray = selectedIds.includes(id)
+      ? selectedIds.filter((x) => x !== id)
+      : [...selectedIds, id];
 
-  const isAllSelected = data.length > 0 && selectedIds.length === data.length;
+    setSelectedIds(newArray);
+  };
   //
   return (
     <div

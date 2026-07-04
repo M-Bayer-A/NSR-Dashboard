@@ -1,4 +1,5 @@
 export default function BackDrop({
+  className,
   open = false,
   onClick = () => {},
   children,
@@ -10,9 +11,9 @@ export default function BackDrop({
           onClick();
         }
       }}
-      className={`fixed inset-0 z-80 flex justify-center items-center
-        bg-white/30 backdrop-blur-[1px] transition-opacity duration-300 ease-in-out
-          ${open ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}
+      className={`${className} fixed inset-0 flex justify-center items-center
+        transition-opacity duration-300 ease-in-out
+        ${open ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}
     >
       {children}
     </div>

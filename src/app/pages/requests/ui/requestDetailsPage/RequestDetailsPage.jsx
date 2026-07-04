@@ -1,4 +1,4 @@
-import PageLayout from "../../../layouts/pageLayout/PageLayout";
+import PageLayout from "../../../../layouts/pageLayout/PageLayout";
 import ProblemDetails from "./components/ProblemDetails";
 import RequestDetailsHeader from "./components/RequestDetailsHeader";
 import RequestInfoCard from "./components/RequestInfoCard";

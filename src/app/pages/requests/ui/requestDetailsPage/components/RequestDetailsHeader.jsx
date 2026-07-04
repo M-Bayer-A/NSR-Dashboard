@@ -1,7 +1,7 @@
-import { Icons } from "../../../../../assets/icons";
-import IconButton from "../../../../shared/components/IconButton";
-import Tag from "../../../../shared/components/Tag";
-import TextIconButton from "../../../../shared/components/TextIconButton";
+import { Icons } from "../../../../../../assets/icons";
+import IconButton from "../../../../../shared/components/IconButton";
+import Tag from "../../../../../shared/components/Tag";
+import TextIconButton from "../../../../../shared/components/TextIconButton";
 
 export default function RequestDetailsHeader() {
   return (

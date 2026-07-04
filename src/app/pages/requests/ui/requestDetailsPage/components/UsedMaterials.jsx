@@ -1,4 +1,4 @@
-import DataTable from "../../../../shared/components/DateTable";
+import DataTable from "../../../../../shared/components/DateTable";
 
 export default function UsedMaterials() {
   return (
