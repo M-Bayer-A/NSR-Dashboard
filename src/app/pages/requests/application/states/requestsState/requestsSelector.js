@@ -1,7 +1,3 @@
-// export const requestsSelectors = {
-//   searchValues: (state) => state.requests.search,
-//   tableValues: (state) => state.requests.table,
-// };
 export const requestsSelectors = {
   search: {
     textField: (state) => state.requests.search.textField,
@@ -35,10 +31,6 @@ export const requestsSelectors = {
   loaded: {
     table: (state) => state.requests.isLoaded.table,
     dropDowns: (state) => state.requests.isLoaded.dropDowns,
-  },
-  loading: {
-    table: (state) => state.requests.isLoading.table,
-    dropDowns: (state) => state.requests.isLoading.dropDowns,
   },
   isOpen: {
     filterPopup: (state) => state.requests.isOpen.filterPopup,

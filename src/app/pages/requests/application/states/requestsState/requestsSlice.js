@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getRequestsTableReducer } from "./extraReducers/getRequestsTableReducer";
-import { getFilterOptionsReducer } from "./extraReducers/getFilterOptionsReducer";
+import { getRequestsTableUseCase } from "../../useCases/getRequestsTableUseCase";
+import { getFilterOptionsUseCase } from "../../useCases/getFilterOptionsUseCase";
 //
 const initialState = {
   search: {
@@ -32,10 +32,6 @@ const initialState = {
     supervisor: [],
   },
   isLoaded: {
-    table: false,
-    dropDowns: false,
-  },
-  isLoading: {
     table: false,
     dropDowns: false,
   },
@@ -113,8 +109,15 @@ export const requestsSlice = createSlice({
   },
   // ==EXTRA REDUCERS==
   extraReducers(builder) {
-    getRequestsTableReducer(builder);
-    getFilterOptionsReducer(builder);
+    builder.addCase(getRequestsTableUseCase.fulfilled, (state, { payload }) => {
+      state.table = { ...payload };
+      state.isLoaded.table = true;
+    });
+    //
+    builder.addCase(getFilterOptionsUseCase.fulfilled, (state, { payload }) => {
+      state.dropDownsOptions = { ...payload };
+      state.isLoaded.dropDowns = true;
+    });
   },
 });
 //

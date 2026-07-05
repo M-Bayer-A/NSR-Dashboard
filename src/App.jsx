@@ -13,7 +13,7 @@ import SupervisorAccountPage from "./app/pages/supervisors/supervisorAccountPage
 import { ToastContainer } from "react-toastify";
 import LoadingBackDrop from "./app/shared/components/LoadingBackDrop";
 import { useSelector } from "react-redux";
-import { actionLoadingSelector } from "./app/shared/states/actionLoadingState/actionLoadingSelector";
+import { loadingSelector } from "./app/shared/states/loadingState/loadingSelector";
 
 function App() {
   //
@@ -68,7 +68,7 @@ function App() {
     document.documentElement.classList.add("light");
   }, []);
   //
-  const isActionLoading = useSelector(actionLoadingSelector.isActionLoading);
+  const isActionLoading = useSelector(loadingSelector.isActionLoading);
   //
   return (
     <>

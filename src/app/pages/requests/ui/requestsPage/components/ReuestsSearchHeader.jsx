@@ -16,12 +16,16 @@ import {
 } from "../../../application/states/requestsState/requestsSlice";
 import SkeletonLoader from "../../../../../shared/components/SkeletonLoader";
 import { getRequestsTableUseCase } from "../../../application/useCases/getRequestsTableUseCase";
+import { loadingSelector } from "../../../../../shared/states/loadingState/loadingSelector";
 
 export default function ReuestsSearchHeader() {
   //
   const dispatch = useDispatch();
   //
-  const isOptionsLoading = useSelector(requestsSelectors.loading.dropDowns);
+  const isOptionsLoading = useSelector(
+    loadingSelector.requests.IsDropDownsOptionsLoading,
+  );
+  console.log(isOptionsLoading);
   //
   const unitOptions = useSelector(requestsSelectors.dropDownsOptions.unit);
   const floorOptions = useSelector(requestsSelectors.dropDownsOptions.floor);

@@ -8,13 +8,15 @@ import SkeletonLoader from "../../../../../shared/components/SkeletonLoader";
 import { acceptRequestUseCase } from "../../../application/useCases/AcceptRequestUseCase";
 import { rejectRequestUseCase } from "../../../application/useCases/rejectRequestUseCase";
 import { useNavigate } from "react-router-dom";
+import { loadingSelector } from "../../../../../shared/states/loadingState/loadingSelector";
 
 export default function RequestsTable() {
   //
   const dispatch = useDispatch();
   const navigate = useNavigate();
   //
-  const isTableLoading = useSelector(requestsSelectors.loading.table);
+  const isTableLoading = useSelector(loadingSelector.requests.isTableLoading);
+  console.log("from the table " + isTableLoading);
   //
   const tableData = useSelector(requestsSelectors.table.data);
   const tableColumns = useSelector(requestsSelectors.table.columns);

@@ -45,7 +45,6 @@ const initialState = {
     notes: "تصرفنا شبنا",
     photos: [],
   },
-  rejectRequestPopup: { reasone: "" },
   usedMaterials: [
     { name: "name", number: "cscsc" },
     { name: "name", number: "cscsc" },
@@ -54,8 +53,8 @@ const initialState = {
     { name: "name", number: "cscsc" },
     { name: "name", number: "cscsc" },
   ],
+  rejectRequestPopup: { reasone: "" },
   //
-  isLoading: {},
   isOpen: {
     rejectRequestPopup: false,
   },
