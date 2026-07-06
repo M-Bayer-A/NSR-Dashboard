@@ -15,10 +15,12 @@ import { loadingSelector } from "../../../../shared/states/loadingState/loadingS
 import SkeletonLoader from "../../../../shared/components/SkeletonLoader";
 import { useEffect } from "react";
 import { getRequestDetailsUseCase } from "../../application/useCases/getRequestDetailsUseCase";
+import { useParams } from "react-router-dom";
 
 export default function RequestDetailsPage() {
   //
   const dispatch = useDispatch();
+  const { id } = useParams();
   //
   const isRequestDetailsLoading = useSelector(
     loadingSelector.requestDetails.isRequestDetailsLoading,
@@ -28,7 +30,7 @@ export default function RequestDetailsPage() {
   useEffect(() => {
     dispatch(getRequestDetailsUseCase());
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [id]);
   //
   return (
     <PageLayout
@@ -36,7 +38,7 @@ export default function RequestDetailsPage() {
       action={
         <>
           <TextIconButton
-            className={"bg-red-100 border-none text-red-500"}
+            className={"bg-red-100 border-none text-red-500 font-bold"}
             title="رفض الطلب"
             Icon={Icons.Rejected}
             onClick={() => {
@@ -45,7 +47,7 @@ export default function RequestDetailsPage() {
           />
           <TextIconButton
             className={
-              "bg-primary-accent border-none text-text-primary-inverse"
+              "bg-primary-accent border-none text-text-primary-inverse font-bold"
             }
             title="تأكيد الطلب"
             Icon={Icons.Accepted}

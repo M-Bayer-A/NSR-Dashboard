@@ -22,14 +22,16 @@ export default function SearchBar({
       />
       <div className="flex flex-row gap-3">
         <TextIconButton
-          className={"bg-bg-secondary border-border-theme text-primary-accent"}
+          className={
+            "bg-bg-secondary border-border-theme text-primary-accent font-bold"
+          }
           title="فلترة"
           Icon={Icons.Filter}
           onClick={openFilter}
         />
         <TextButton
           className={
-            "w-31 border-none bg-primary-accent text-text-primary-inverse"
+            "w-31 border-none bg-primary-accent text-text-primary-inverse font-bold"
           }
           onClick={onSubmit}
           title="بحث"

@@ -15,17 +15,13 @@ export default function Popup({
       onClick={onClose}
     >
       <div
-        className="min-w-full md:min-w-135 max-h-[90vh] flex flex-col p-6 gap-5  
-        bg-bg-primary border border-border-theme rounded-3xl font-[Cairo] text-right"
+        className="min-w-full md:min-w-125 max-h-[90vh] flex flex-col p-6 gap-5  
+        bg-bg-primary border border-border-theme rounded-3xl text-black font-[Cairo]"
       >
-        <h1 className="font-bold text-xl">{title}</h1>
-        <div className="w-full h-fit max-h-full p-0.5 overflow-auto">
-          {children}
-        </div>
+        <h1 className="font-bold text-[22px] text-center">{title}</h1>
+        <div className="w-full p-2 overflow-auto">{children}</div>
         {/* Action Buttons */}
-        <div className="w-full flex flex-row justify-end items-center gap-2.5">
-          {actions}
-        </div>
+        <div className="w-full flex flex-row justify-end gap-5">{actions}</div>
         {/* ==Action Buttons== */}
       </div>
     </BackDrop>

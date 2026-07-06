@@ -1,11 +1,11 @@
 import { useSelector } from "react-redux";
 import { Icons } from "../../../../../../assets/icons";
 import { requestDetailSelector } from "../../../application/states/requestDetailsState/requestDetailsSelector";
+import Carousel from "../../../../../shared/components/Carousel";
 
 export default function SolutionDetails() {
   //
   const notes = useSelector(requestDetailSelector.solution.notes);
-  const photos = useSelector(requestDetailSelector.solution.photos);
   //
   return (
     <div
@@ -23,10 +23,17 @@ export default function SolutionDetails() {
             <Icons.Photo />
             <span className="text-[16px] font-bold">صور حل المشكلة</span>
           </div>
-          <img
+          <Carousel
             className="h-56.25 w-87.5 bg-gray-500"
-            src={photos}
-            alt="photo"
+            images={[
+              { src: "/photos/Attack on Titan.jpg" },
+              { src: "/photos/Levi Ackerman.jpg" },
+              { src: "/photos/Rise Up.jpg" },
+              { src: "/photos/thorfinn.jpg" },
+              {
+                src: "https://static.wikia.nocookie.net/typemoon/images/2/27/Fate_strange_Fake_TV_Key_Visual_2.jpeg/revision/latest?cb=20240722043247",
+              },
+            ]}
           />
         </div>
         {/* ==Problem Photos== */}
