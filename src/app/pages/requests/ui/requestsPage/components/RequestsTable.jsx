@@ -5,7 +5,7 @@ import { setTableSelectedRowsIds } from "../../../application/states/requestsSta
 import IconButton from "../../../../../shared/components/IconButton";
 import { Icons } from "../../../../../../assets/icons";
 import SkeletonLoader from "../../../../../shared/components/SkeletonLoader";
-import { acceptRequestUseCase } from "../../../application/useCases/AcceptRequestUseCase";
+import { acceptRequestUseCase } from "../../../application/useCases/acceptRequestUseCase";
 import { rejectRequestUseCase } from "../../../application/useCases/rejectRequestUseCase";
 import { useNavigate } from "react-router-dom";
 import { loadingSelector } from "../../../../../shared/states/loadingState/loadingSelector";
