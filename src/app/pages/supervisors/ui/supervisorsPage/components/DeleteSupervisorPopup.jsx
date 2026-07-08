@@ -1,8 +1,9 @@
 import { useDispatch, useSelector } from "react-redux";
 import Popup from "../../../../../shared/components/Popup";
-import TextButton from "../../../../shared/components/TextButton";
 import { supervisorsSelectors } from "../../../application/states/supervisorsState/supervisorsSelector";
 import { setDeleteSupervisorPopupOpen } from "../../../application/states/supervisorsState/supervisorsSlice";
+import TextButton from "../../../../../shared/components/TextButton";
+import { deleteSupervisorUseCase } from "../../../application/useCases/deleteSupervisorUseCase";
 
 export default function DeleteSupervisorPopup() {
   //
@@ -12,6 +13,13 @@ export default function DeleteSupervisorPopup() {
     supervisorsSelectors.isOpen.deleteSupervisorPopup,
   );
   //
+  const handelSubmit = () => {
+    dispatch(deleteSupervisorUseCase());
+  };
+  const handleClose = () => {
+    dispatch(setDeleteSupervisorPopupOpen({ value: false }));
+  };
+  //
   return (
     <Popup
       open={isDeletePopupOpen}
@@ -20,16 +28,15 @@ export default function DeleteSupervisorPopup() {
         <>
           <TextButton
             className={
-              "w-31 bg-bg-secondary border-border-theme text-primary-accent"
+              "w-31 bg-bg-secondary border-border-theme text-primary-accent font-bold"
             }
             title="تراجع"
-            onClick={() => {
-              dispatch(setDeleteSupervisorPopupOpen({ value: false }));
-            }}
+            onClick={handleClose}
           />
           <TextButton
-            className={"w-31 bg-red-100 border-none text-red-500"}
+            className={"w-31 bg-red-100 border-none text-red-500 font-bold"}
             title="أنا متأكد"
+            onClick={handelSubmit}
           />
         </>
       }

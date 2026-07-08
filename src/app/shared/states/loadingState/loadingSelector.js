@@ -10,4 +10,7 @@ export const loadingSelector = {
     isRequestDetailsLoading: (state) =>
       state.loading.requestDetails.isRequestDetailsLoading,
   },
+  supervisors: {
+    isTableLoading: (state) => state.loading.supervisors.isTableLoading,
+  },
 };

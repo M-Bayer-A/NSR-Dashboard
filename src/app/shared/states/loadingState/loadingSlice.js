@@ -6,12 +6,19 @@ import {
   getRequestsTableReducer,
   rejectRequestReducer,
 } from "./extraReducers/requestsReducers";
+import {
+  addSupervisorReducer,
+  deleteSupervisorReducer,
+  editSupervisorReducer,
+  getSupervisorsTableReducer,
+} from "./extraReducers/supervisorsReducers";
 
 //
 const initialState = {
   isActionLoading: false,
   requests: { isTableLoading: false, IsDropDownsOptionsLoading: false },
   requestDetails: { isRequestDetailsLoading: false },
+  supervisors: { isTableLoading: false },
 };
 //
 export const loadingSlice = createSlice({
@@ -21,11 +28,17 @@ export const loadingSlice = createSlice({
   reducers: {},
   // ==EXTRA REDUCERS==
   extraReducers(builder) {
+    //
     acceptRequestReducer(builder);
     rejectRequestReducer(builder);
     getFilterOptionsReducer(builder);
     getRequestsTableReducer(builder);
     getRequestDetailsReducer(builder);
+    //
+    getSupervisorsTableReducer(builder);
+    addSupervisorReducer(builder);
+    editSupervisorReducer(builder);
+    deleteSupervisorReducer(builder);
   },
 });
 //

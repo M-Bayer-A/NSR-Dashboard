@@ -10,12 +10,31 @@ import {
   setAddSupervisorPopupOpen,
   setSearchTextField,
 } from "../../application/states/supervisorsState/supervisorsSlice";
+import DeleteSupervisorPopup from "./components/DeleteSupervisorPopup";
+import EditSupervisorPopup from "./components/EditSupervisorPopup";
+import { useEffect } from "react";
+import { getSupervisorsTableUseCase } from "../../application/useCases/getSupervisorsTableUseCase";
+import { getUnitOptionsUseCase } from "../../application/useCases/getUnitOptionsUseCase";
 
 export default function SupervisorsPage() {
   //
   const dispatch = useDispatch();
   //
+  const isTableLoaded = useSelector(supervisorsSelectors.loaded.table);
+  const isUnitOptionsLoaded = useSelector(
+    supervisorsSelectors.loaded.dropDowns,
+  );
+
   const textField = useSelector(supervisorsSelectors.search.textField);
+  //
+  useEffect(() => {
+    if (!isTableLoaded) {
+      dispatch(getSupervisorsTableUseCase());
+    }
+    if (!isUnitOptionsLoaded) {
+      dispatch(getUnitOptionsUseCase());
+    }
+  }, [dispatch, isTableLoaded, isUnitOptionsLoaded]);
   //
   return (
     <PageLayout
@@ -24,7 +43,7 @@ export default function SupervisorsPage() {
         <>
           <TextButton
             className={
-              "border-none bg-primary-accent text-text-primary-inverse"
+              "border-none bg-primary-accent text-text-primary-inverse font-bold"
             }
             title="إضافة مشرف"
             onClick={() => {
@@ -41,13 +60,15 @@ export default function SupervisorsPage() {
           onChange={(value) => {
             dispatch(setSearchTextField({ value }));
           }}
-          onSubmit={() => {}}
+          onSubmit={() => {
+            dispatch(getSupervisorsTableUseCase());
+          }}
         />
         <SupervisorsTable />
       </div>
       <AddSupervisorPopup />
-      {/* <DeleteSupervisorPopup />
-      <EditSupervisorPopup /> */}
+      <DeleteSupervisorPopup />
+      <EditSupervisorPopup />
     </PageLayout>
   );
 }

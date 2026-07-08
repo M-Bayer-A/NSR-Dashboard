@@ -1,90 +1,35 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { getSupervisorsTableUseCase } from "../../useCases/getSupervisorsTableUseCase";
+import { getUnitOptionsUseCase } from "../../useCases/getUnitOptionsUseCase";
+import { addSupervisorUseCase } from "../../useCases/addSupervisorUseCase";
+import { editSupervisorUseCase } from "../../useCases/editSupervisorUseCase";
+import { deleteSupervisorUseCase } from "../../useCases/deleteSupervisorUseCase";
 //
 const initialState = {
   search: {
     textField: "",
   },
   table: {
-    columns: [
-      {
-        accessorKey: "id",
-        header: "ID",
-        isVisible: true,
-      },
-      {
-        accessorKey: "code",
-        header: "الكود",
-        isVisible: true,
-      },
-      {
-        accessorKey: "validity",
-        header: "الصلاحية",
-        isVisible: true,
-      },
-      {
-        accessorKey: "status",
-        header: "الحالة",
-        isVisible: true,
-      },
-      {
-        accessorKey: "userNumber",
-        header: "المستخدم",
-        isVisible: true,
-      },
-      {
-        accessorKey: "endDate",
-        header: "تاريخ الإنتهاء",
-        isVisible: true,
-      },
-    ],
-    data: [
-      {
-        id: "0",
-        code: "qwerty",
-        validity: 30,
-        status: "مستخدم",
-        userNumber: "0951830877",
-        endDate: "17-10-2025",
-      },
-      {
-        id: "1",
-        code: "qwerty",
-        validity: 30,
-        status: "منتهي",
-        userNumber: null,
-        endDate: "17-10-2025",
-      },
-      {
-        id: "2",
-        code: "qwerty",
-        validity: 30,
-        status: "متاح",
-        userNumber: "0951830877",
-        endDate: "17-10-2025",
-      },
-      {
-        id: "3",
-        code: "qwerty",
-        validity: 30,
-        status: "مستخدم",
-        userNumber: "0951830877",
-        endDate: "17-10-2025",
-      },
-    ],
+    columns: [],
+    data: [],
     selectedRowsIds: [],
     pageNumber: 1,
     pageSize: 20,
   },
+  dropDownsOptions: {
+    unit: [],
+  },
   addSupervisorPopup: {
     name: "",
-    phoneNumber: null,
+    phoneNumber: "",
     unit: null,
     isActive: false,
   },
   editSupervisorPopup: {
     id: null,
+    initialInfo: { name: "", phoneNumber: "", unit: null, isActive: false },
     name: "",
-    phoneNumber: null,
+    phoneNumber: "",
     unit: null,
     isActive: false,
   },
@@ -99,6 +44,7 @@ const initialState = {
   },
   isLoaded: {
     table: false,
+    dropDowns: false,
   },
 };
 //
@@ -127,6 +73,42 @@ export const supervisorsSlice = createSlice({
     },
     //
     //
+    setNameAddSupervisorPopup: (state, { payload }) => {
+      const { value } = payload;
+      state.addSupervisorPopup.name = value;
+    },
+    setPhoneNumberAddSupervisorPopup: (state, { payload }) => {
+      const { value } = payload;
+      state.addSupervisorPopup.phoneNumber = value;
+    },
+    setUnitAddSupervisorPopup: (state, { payload }) => {
+      const { value } = payload;
+      state.addSupervisorPopup.unit = value;
+    },
+    setIsActiveAddSupervisorPopup: (state, { payload }) => {
+      const { value } = payload;
+      state.addSupervisorPopup.isActive = value;
+    },
+    //
+    //
+    setNameEditSupervisorPopup: (state, { payload }) => {
+      const { value } = payload;
+      state.editSupervisorPopup.name = value;
+    },
+    setPhoneNumberEditSupervisorPopup: (state, { payload }) => {
+      const { value } = payload;
+      state.editSupervisorPopup.phoneNumber = value;
+    },
+    setUnitEditSupervisorPopup: (state, { payload }) => {
+      const { value } = payload;
+      state.editSupervisorPopup.unit = value;
+    },
+    setIsActiveEditSupervisorPopup: (state, { payload }) => {
+      const { value } = payload;
+      state.editSupervisorPopup.isActive = value;
+    },
+    //
+    //
     setFilterPopupOpen: (state, { payload }) => {
       const { value } = payload;
       state.isOpen.filterPopup = value;
@@ -136,26 +118,71 @@ export const supervisorsSlice = createSlice({
       state.isOpen.addSupervisorPopup = value;
     },
     setEditeSupervisorPopupOpen: (state, { payload }) => {
-      const { value } = payload;
+      const { value, id } = payload;
+      //
+      if (value) {
+        const supervisor = state.table.data.find((d) => d.id == id);
+
+        if (!supervisor) return;
+
+        const info = {
+          id,
+          name: supervisor.name,
+          phoneNumber: supervisor.phoneNumber,
+          unit: supervisor.unit,
+          isActive: supervisor.accountStatus,
+        };
+        state.editSupervisorPopup = { initialInfo: { ...info }, ...info };
+      }
+      //
       state.isOpen.editSupervisorPopup = value;
     },
     setDeleteSupervisorPopupOpen: (state, { payload }) => {
-      const { value } = payload;
+      const { value, id } = payload;
+      if (value) {
+        state.deleteSupervisorPopup.id = id;
+      }
       state.isOpen.deleteSupervisorPopup = value;
     },
   },
   // ==EXTRA REDUCERS==
-  // extraReducers(builder) {
-  //   builder.addCase(getRequestsTableUseCase.fulfilled, (state, { payload }) => {
-  //     state.table = { ...payload };
-  //     state.isLoaded.table = true;
-  //   });
-  //   //
-  //   builder.addCase(getFilterOptionsUseCase.fulfilled, (state, { payload }) => {
-  //     state.dropDownsOptions = { ...payload };
-  //     state.isLoaded.dropDowns = true;
-  //   });
-  // },
+  extraReducers(builder) {
+    builder.addCase(
+      getSupervisorsTableUseCase.fulfilled,
+      (state, { payload }) => {
+        state.table.columns = payload.columns;
+        state.table.data = payload.data;
+        state.isLoaded.table = true;
+      },
+    );
+    builder.addCase(getUnitOptionsUseCase.fulfilled, (state, { payload }) => {
+      state.dropDownsOptions.unit = payload;
+      state.isLoaded.dropDowns = true;
+    });
+    builder.addCase(addSupervisorUseCase.fulfilled, (state) => {
+      state.addSupervisorPopup = initialState.addSupervisorPopup;
+      state.isOpen.addSupervisorPopup = false;
+    });
+    builder.addCase(editSupervisorUseCase.fulfilled, (state) => {
+      const index = state.table.data.findIndex(
+        (supervisor) => supervisor.id === state.editSupervisorPopup.id,
+      );
+      let row = state.table.data[index];
+
+      row.name = state.editSupervisorPopup.name;
+      row.phoneNumber = state.editSupervisorPopup.phoneNumber;
+      row.unit = state.editSupervisorPopup.unit;
+      row.accountStatus = state.editSupervisorPopup.isActive;
+
+      state.isOpen.editSupervisorPopup = false;
+    });
+    builder.addCase(deleteSupervisorUseCase.fulfilled, (state) => {
+      state.table.data = state.table.data.filter(
+        (supervisor) => supervisor.id != state.deleteSupervisorPopup.id,
+      );
+      state.isOpen.deleteSupervisorPopup = false;
+    });
+  },
 });
 //
 export const {
@@ -167,6 +194,15 @@ export const {
   setTablePageNumber,
   setTablePageSize,
   setTableSelectedRowsIds,
+  setIsActiveAddSupervisorPopup,
+  setIsActiveEditSupervisorPopup,
+  setNameAddSupervisorPopup,
+  setNameEditSupervisorPopup,
+  setPhoneNumberAddSupervisorPopup,
+  setPhoneNumberEditSupervisorPopup,
+  setUnitAddSupervisorPopup,
+  setUnitEditSupervisorPopup,
+  setIdDeleteSupervisorPopup,
 } = supervisorsSlice.actions;
 
 export default supervisorsSlice.reducer;

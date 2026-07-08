@@ -4,7 +4,7 @@ const SideBarContext = createContext();
 //
 export default function SideBarProvider({ children, className }) {
   //
-  const [isOpen, setopen] = useState(true);
+  const [isOpen, setopen] = useState(false);
   const handleOpenSideBar = () => {
     setopen(!isOpen);
   };
