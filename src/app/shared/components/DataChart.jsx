@@ -1,16 +1,11 @@
 import { ResponsiveContainer, BarChart, Bar, XAxis } from "recharts";
 
-export default function DataChart({ width = "100%", height = "100%" }) {
-  const data = [
-    { day: "س", value: 15 },
-    { day: "ج", value: 35 },
-    { day: "خ", value: 50 },
-    { day: "أر", value: 80 },
-    { day: "ث", value: 130 },
-    { day: "أث", value: 55 },
-    { day: "أح", value: 72 },
-  ];
-
+export default function DataChart({
+  width = "100%",
+  height = "100%",
+  data = [{ day: "س", value: 15 }],
+}) {
+  //
   return (
     <ResponsiveContainer width={width} height={height}>
       <BarChart data={data}>

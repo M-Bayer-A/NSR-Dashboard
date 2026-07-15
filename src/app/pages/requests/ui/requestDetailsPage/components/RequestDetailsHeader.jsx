@@ -5,6 +5,7 @@ import Tag from "../../../../../shared/components/Tag";
 import TextIconButton from "../../../../../shared/components/TextIconButton";
 import { useSelector } from "react-redux";
 import { requestDetailSelector } from "../../../application/states/requestDetailsState/requestDetailsSelector";
+import { tagConfigs } from "../../../../../../constants/tagConfigs";
 
 export default function RequestDetailsHeader() {
   //
@@ -25,7 +26,7 @@ export default function RequestDetailsHeader() {
         className={"bg-bg-secondary border-border-theme text-primary-accent"}
       />
       <div className="flex flex-row gap-6 items-center">
-        <Tag status={requestStatus} />
+        <Tag tagConfig={tagConfigs[requestStatus]} />
         <p className="text-text-primary font-medium">#{id}</p>
         <div className="flex flex-row gap-1">
           <IconButton

@@ -2,6 +2,7 @@ import { useSelector } from "react-redux";
 import { Icons } from "../../../../../../assets/icons";
 import { requestDetailSelector } from "../../../application/states/requestDetailsState/requestDetailsSelector";
 import Tag from "../../../../../shared/components/Tag";
+import { tagConfigs } from "../../../../../../constants/tagConfigs";
 
 export default function RequestInfoCard() {
   //
@@ -32,7 +33,7 @@ export default function RequestInfoCard() {
     {
       icon: Icons.Info,
       label: ": الأولوية",
-      value: <Tag status={importance} />,
+      value: <Tag tagConfig={tagConfigs[importance]} />,
     },
     { icon: Icons.Info, label: ": النوع", value: type },
     { icon: Icons.Building, label: ": المبنى", value: unit },
