@@ -18,6 +18,10 @@ import {
   editWorkerReducer,
   getWorkersTableReducer,
 } from "./extraReducers/workersReducers";
+import {
+  deleteReportReducer,
+  getReportsTableReducer,
+} from "./extraReducers/reportsReducers";
 
 //
 const initialState = {
@@ -26,6 +30,7 @@ const initialState = {
   requestDetails: { isRequestDetailsLoading: false },
   supervisors: { isTableLoading: false },
   workers: { isTableLoading: false },
+  reports: { isTableLoading: false },
 };
 //
 export const loadingSlice = createSlice({
@@ -51,6 +56,9 @@ export const loadingSlice = createSlice({
     addWorkerReducer(builder);
     editWorkerReducer(builder);
     deleteWorkerReducer(builder);
+    //
+    getReportsTableReducer(builder);
+    deleteReportReducer(builder);
   },
 });
 //

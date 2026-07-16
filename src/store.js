@@ -5,6 +5,7 @@ import loadingReducer from "./app/shared/states/loadingState/loadingSlice";
 import supervisorsReducer from "./app/pages/supervisors/application/states/supervisorsState/supervisorsSlice";
 import supervisorAccountReducer from "./app/pages/supervisors/application/states/supervisorAccountState/supervisorAccountSlice";
 import workersReducer from "./app/pages/workers/application/state/workersSlice";
+import reportsReducer from "./app/pages/reports/application/state/reportsSlice";
 
 export const store = configureStore({
   reducer: {
@@ -14,5 +15,6 @@ export const store = configureStore({
     supervisors: supervisorsReducer,
     supervisorAccount: supervisorAccountReducer,
     workers: workersReducer,
+    reports: reportsReducer,
   },
 });

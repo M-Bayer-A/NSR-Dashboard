@@ -16,4 +16,7 @@ export const loadingSelector = {
   workers: {
     isTableLoading: (state) => state.loading.workers.isTableLoading,
   },
+  reports: {
+    isTableLoading: (state) => state.loading.reports.isTableLoading,
+  },
 };

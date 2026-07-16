@@ -15,6 +15,7 @@ import LoadingBackDrop from "./app/shared/components/LoadingBackDrop";
 import { useSelector } from "react-redux";
 import { loadingSelector } from "./app/shared/states/loadingState/loadingSelector";
 import WorkersPage from "./app/pages/workers/ui/WorkersPage";
+import ReportsPage from "./app/pages/reports/ui/ReportsPage";
 
 function App() {
   //
@@ -52,7 +53,7 @@ function App() {
           ],
         },
         { path: "workers", element: <WorkersPage /> },
-        { path: "reports", element: <HomePage /> },
+        { path: "reports", element: <ReportsPage /> },
         { path: "notifications", element: <HomePage /> },
         { path: "categories", element: <HomePage /> },
         { path: "tools", element: <HomePage /> },
