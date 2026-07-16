@@ -12,6 +12,12 @@ import {
   editSupervisorReducer,
   getSupervisorsTableReducer,
 } from "./extraReducers/supervisorsReducers";
+import {
+  addWorkerReducer,
+  deleteWorkerReducer,
+  editWorkerReducer,
+  getWorkersTableReducer,
+} from "./extraReducers/workersReducers";
 
 //
 const initialState = {
@@ -19,6 +25,7 @@ const initialState = {
   requests: { isTableLoading: false, IsDropDownsOptionsLoading: false },
   requestDetails: { isRequestDetailsLoading: false },
   supervisors: { isTableLoading: false },
+  workers: { isTableLoading: false },
 };
 //
 export const loadingSlice = createSlice({
@@ -39,6 +46,11 @@ export const loadingSlice = createSlice({
     addSupervisorReducer(builder);
     editSupervisorReducer(builder);
     deleteSupervisorReducer(builder);
+    //
+    getWorkersTableReducer(builder);
+    addWorkerReducer(builder);
+    editWorkerReducer(builder);
+    deleteWorkerReducer(builder);
   },
 });
 //

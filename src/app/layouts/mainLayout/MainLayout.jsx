@@ -36,6 +36,26 @@ export default function MainLayout() {
       icon: Icons.Reports,
       url: "/reports",
     },
+    {
+      title: "الإشعارات",
+      icon: Icons.Notifications,
+      url: "/notifications",
+    },
+    {
+      title: "فئات الطلبات",
+      icon: Icons.Category,
+      url: "/categories",
+    },
+    {
+      title: "معدات الصيانة",
+      icon: Icons.Tool,
+      url: "/tools",
+    },
+    {
+      title: "الوحدات السكنية",
+      icon: Icons.Building,
+      url: "/units",
+    },
   ];
   //
   const navigate = useNavigate();
