@@ -15,7 +15,7 @@ import { useEffect } from "react";
 import NotificationsTable from "./components/NotificationsTable";
 import DeleteNotificationPopup from "./components/DeleteNotificationPopup";
 import SelectButton from "../../../shared/components/SelectButton";
-import SendNotificationPopup from "./components/sendNotificationPopup";
+import SendNotificationPopup from "./components/SendNotificationPopup";
 
 export default function NotificationsPage() {
   //
