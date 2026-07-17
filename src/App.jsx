@@ -16,6 +16,7 @@ import { useSelector } from "react-redux";
 import { loadingSelector } from "./app/shared/states/loadingState/loadingSelector";
 import WorkersPage from "./app/pages/workers/ui/WorkersPage";
 import ReportsPage from "./app/pages/reports/ui/ReportsPage";
+import NotificationsPage from "./app/pages/notifications/ui/NotificationsPage";
 
 function App() {
   //
@@ -54,7 +55,7 @@ function App() {
         },
         { path: "workers", element: <WorkersPage /> },
         { path: "reports", element: <ReportsPage /> },
-        { path: "notifications", element: <HomePage /> },
+        { path: "notifications", element: <NotificationsPage /> },
         { path: "categories", element: <HomePage /> },
         { path: "tools", element: <HomePage /> },
         { path: "units", element: <HomePage /> },

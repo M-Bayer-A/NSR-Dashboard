@@ -19,4 +19,9 @@ export const loadingSelector = {
   reports: {
     isTableLoading: (state) => state.loading.reports.isTableLoading,
   },
+  notifications: {
+    isTableLoading: (state) => state.loading.notifications.isTableLoading,
+    isReceiversTableLoading: (state) =>
+      state.loading.notifications.isReceiversTableLoading,
+  },
 };

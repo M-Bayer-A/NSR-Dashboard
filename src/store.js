@@ -6,6 +6,7 @@ import supervisorsReducer from "./app/pages/supervisors/application/states/super
 import supervisorAccountReducer from "./app/pages/supervisors/application/states/supervisorAccountState/supervisorAccountSlice";
 import workersReducer from "./app/pages/workers/application/state/workersSlice";
 import reportsReducer from "./app/pages/reports/application/state/reportsSlice";
+import notificationsReducer from "./app/pages/notifications/application/state/notificationsSlice";
 
 export const store = configureStore({
   reducer: {
@@ -16,5 +17,6 @@ export const store = configureStore({
     supervisorAccount: supervisorAccountReducer,
     workers: workersReducer,
     reports: reportsReducer,
+    notifications: notificationsReducer,
   },
 });

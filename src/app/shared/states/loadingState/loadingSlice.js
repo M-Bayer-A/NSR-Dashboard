@@ -22,6 +22,13 @@ import {
   deleteReportReducer,
   getReportsTableReducer,
 } from "./extraReducers/reportsReducers";
+import {
+  deleteNotificationReducer,
+  getReceiversTableReducer,
+  getSentNotificationsTableReducer,
+  getSystemNotificationsTableReducer,
+  sendNotificationReducer,
+} from "./extraReducers/notificationsReducers";
 
 //
 const initialState = {
@@ -31,6 +38,7 @@ const initialState = {
   supervisors: { isTableLoading: false },
   workers: { isTableLoading: false },
   reports: { isTableLoading: false },
+  notifications: { isTableLoading: false, isReceiversTableLoading: false },
 };
 //
 export const loadingSlice = createSlice({
@@ -59,6 +67,12 @@ export const loadingSlice = createSlice({
     //
     getReportsTableReducer(builder);
     deleteReportReducer(builder);
+    //
+    getSystemNotificationsTableReducer(builder);
+    getSentNotificationsTableReducer(builder);
+    getReceiversTableReducer(builder);
+    sendNotificationReducer(builder);
+    deleteNotificationReducer(builder);
   },
 });
 //
